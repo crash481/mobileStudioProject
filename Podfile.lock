@@ -1,0 +1,13 @@
+PODS:
+  - DateTools (1.7.0)
+  - Facade (1.1.1)
+
+DEPENDENCIES:
+  - DateTools
+  - Facade
+
+SPEC CHECKSUMS:
+  DateTools: 53288ee8b905fdc75897a1e6b5cc0144b14cba60
+  Facade: 3c5c6fb1ba042d20885cfe5a290050f5b9351ca2
+
+COCOAPODS: 0.39.0
