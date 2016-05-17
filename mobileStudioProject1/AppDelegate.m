@@ -1,5 +1,5 @@
 #import "AppDelegate.h"
-#import "SchedulesTabBarViewController.h"
+#import "LoginViewController.h"
 
 @implementation AppDelegate
 
@@ -8,8 +8,9 @@
     
     
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
-    SchedulesTabBarViewController *schedulesTabBarViewController = [[SchedulesTabBarViewController alloc] init];
-    self.window.rootViewController = schedulesTabBarViewController;
+    LoginViewController *loginViewController = [[LoginViewController alloc] init];
+    self.window.rootViewController = loginViewController;
+    self.window.backgroundColor = [UIColor whiteColor];
     [self.window makeKeyAndVisible];
     
     return YES;

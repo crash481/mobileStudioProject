@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7C040B0C1CEA7987000FC5C1 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C040B0B1CEA7987000FC5C1 /* LoginViewController.m */; };
+		7C040B0F1CEA7997000FC5C1 /* LoginView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C040B0E1CEA7997000FC5C1 /* LoginView.m */; };
 		7C17D3BC1CCFC26000672EB6 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C17D3BB1CCFC26000672EB6 /* main.m */; };
 		7C17D3BF1CCFC26000672EB6 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C17D3BE1CCFC26000672EB6 /* AppDelegate.m */; };
 		7C17D3C71CCFC26000672EB6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7C17D3C61CCFC26000672EB6 /* Assets.xcassets */; };
@@ -26,6 +28,10 @@
 
 /* Begin PBXFileReference section */
 		116DE5E237991FB4899CC101 /* Pods-mobileStudioProject1.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-mobileStudioProject1.debug.xcconfig"; path = "Pods/Target Support Files/Pods-mobileStudioProject1/Pods-mobileStudioProject1.debug.xcconfig"; sourceTree = "<group>"; };
+		7C040B0A1CEA7987000FC5C1 /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
+		7C040B0B1CEA7987000FC5C1 /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
+		7C040B0D1CEA7997000FC5C1 /* LoginView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginView.h; sourceTree = "<group>"; };
+		7C040B0E1CEA7997000FC5C1 /* LoginView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginView.m; sourceTree = "<group>"; };
 		7C17D3B71CCFC26000672EB6 /* mobileStudioProject1.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = mobileStudioProject1.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7C17D3BB1CCFC26000672EB6 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		7C17D3BD1CCFC26000672EB6 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -86,6 +92,17 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		7C040B091CEA7964000FC5C1 /* LoginViewController */ = {
+			isa = PBXGroup;
+			children = (
+				7C040B0A1CEA7987000FC5C1 /* LoginViewController.h */,
+				7C040B0B1CEA7987000FC5C1 /* LoginViewController.m */,
+				7C040B0D1CEA7997000FC5C1 /* LoginView.h */,
+				7C040B0E1CEA7997000FC5C1 /* LoginView.m */,
+			);
+			path = LoginViewController;
+			sourceTree = "<group>";
+		};
 		7C17D3AE1CCFC26000672EB6 = {
 			isa = PBXGroup;
 			children = (
@@ -130,6 +147,7 @@
 		7C9FC3091CCFDA9900498273 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				7C040B091CEA7964000FC5C1 /* LoginViewController */,
 				7CCDCE221CEA0BD900D12578 /* SchedulesTabBarViewController */,
 				7CA64F951CD8E60700FB55B3 /* EventMembersViewController */,
 				7CAC73EB1CD26170007140C5 /* ScheduleCellViewController */,
@@ -340,6 +358,8 @@
 			files = (
 				7CA64F9F1CD8F49600FB55B3 /* Member.m in Sources */,
 				7C17D3BF1CCFC26000672EB6 /* AppDelegate.m in Sources */,
+				7C040B0F1CEA7997000FC5C1 /* LoginView.m in Sources */,
+				7C040B0C1CEA7987000FC5C1 /* LoginViewController.m in Sources */,
 				7C9FC3171CCFDA9900498273 /* ScheduleViewController.m in Sources */,
 				7C17D3BC1CCFC26000672EB6 /* main.m in Sources */,
 				7CA64F9B1CD8E79A00FB55B3 /* EventMembersView.m in Sources */,

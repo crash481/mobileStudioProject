@@ -40,9 +40,11 @@
         [self.startDateText setText:@"Начало заезда: "];
        
         [self.joinButton setTitle:@"Присоедениться" forState: UIControlStateNormal ];
-        [self.membersButton setTitle:@"Участники" forState: UIControlStateNormal ];
         [self.joinButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+        [self.joinButton setBackgroundImage:[UIImage imageNamed:@"Button"] forState:UIControlStateNormal];
+        [self.membersButton setTitle:@"Участники" forState: UIControlStateNormal ];
         [self.membersButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+        [self.membersButton setBackgroundImage:[UIImage imageNamed:@"Button"] forState:UIControlStateNormal];
         
         [self addSubview: self.mapView];
         [self addSubview: self.startDateText];
@@ -63,10 +65,7 @@
     [super layoutSubviews];
     
     [self.joinButton alignAbove:self.mapView withLeftPadding:20 bottomPadding:15 width:self.width * 0.42 height:30];
-    [self.joinButton setBackgroundImage:[UIImage imageNamed:@"Button"] forState:UIControlStateNormal];
-    
     [self.membersButton alignAbove:self.mapView withRightPadding:20 bottomPadding:15 width:self.width * 0.42 height:30];
-    [self.membersButton setBackgroundImage:[UIImage imageNamed:@"Button"] forState:UIControlStateNormal];
     
     [self.mapView anchorBottomCenterWithBottomPadding:0 width:self.width height:self.height * 0.5];
     
