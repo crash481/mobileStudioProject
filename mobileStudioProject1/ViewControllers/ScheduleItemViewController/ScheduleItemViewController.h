@@ -1,7 +1,7 @@
 #import <UIKit/UIKit.h>
 #import "ScheduleItemView.h"
 
-@interface ScheduleItemViewController : UIViewController
+@interface ScheduleItemViewController : UIViewController <MKMapViewDelegate>
 
 @property (readonly) ScheduleItem* scheduleItem;
 

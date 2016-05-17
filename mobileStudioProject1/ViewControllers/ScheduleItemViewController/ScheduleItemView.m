@@ -64,17 +64,17 @@
 - (void)layoutSubviews{
     [super layoutSubviews];
     
-    [self.joinButton alignAbove:self.mapView withLeftPadding:20 bottomPadding:15 width:self.width * 0.42 height:30];
-    [self.membersButton alignAbove:self.mapView withRightPadding:20 bottomPadding:15 width:self.width * 0.42 height:30];
+    [self.joinButton alignAbove:self.mapView withLeftPadding:20 bottomPadding:10 width:self.width * 0.42 height:30];
+    [self.membersButton alignAbove:self.mapView withRightPadding:20 bottomPadding:10 width:self.width * 0.42 height:30];
     
-    [self.mapView anchorBottomCenterWithBottomPadding:0 width:self.width height:self.height * 0.5];
+    [self.mapView anchorBottomCenterWithBottomPadding:0 width:self.width height:self.height * 0.45];
     
-    [self.startLocationText anchorTopLeftWithLeftPadding:10 topPadding:self.height*0.13 width:130 height:20];
+    [self.startLocationText anchorTopLeftWithLeftPadding:10 topPadding:15 width:130 height:20];
     [self.destinationText alignUnder:self.startLocationText withLeftPadding:10 topPadding:5 width:130 height:20];
     [self.startDateText alignUnder:self.destinationText withLeftPadding:10 topPadding:5 width:130 height:20];
     
     
-    [self.startLocationLabel anchorTopLeftWithLeftPadding:150 topPadding:self.height*0.13 width:150 height:20];
+    [self.startLocationLabel anchorTopLeftWithLeftPadding:150 topPadding:15 width:150 height:20];
     [self.destinationLabel alignUnder:self.startLocationLabel withLeftPadding:150 topPadding:5 width:200 height:20];
     [self.startDateLabel alignUnder:self.destinationLabel withLeftPadding:150 topPadding:5 width:200 height:20];
 }
@@ -93,13 +93,13 @@
     MKPointAnnotation *destinationPin = [[MKPointAnnotation alloc] init];
     destinationPin.coordinate = scheduleItem.destinationCoordinate;
     destinationPin.title = @"Finish";
-
     
     [self.mapView addAnnotation:startPin];
     [self.mapView addAnnotation:destinationPin];
-    self.mapView.delegate = self;
+    
     self.mapView.showsUserLocation = YES;
-    [self.mapView setCenterCoordinate:self.mapView.userLocation.location.coordinate];
+    
+    [self.mapView setRegion:MKCoordinateRegionMake(CLLocationCoordinate2DMake((startPin.coordinate.latitude + destinationPin.coordinate.latitude)/2, (startPin.coordinate.longitude + destinationPin.coordinate.longitude)/2.0), MKCoordinateSpanMake(fabs(startPin.coordinate.latitude - destinationPin.coordinate.latitude)*2, fabs(startPin.coordinate.longitude - destinationPin.coordinate.longitude)*2))];
 
     
 }

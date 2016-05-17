@@ -14,13 +14,15 @@
     [self.loginView.enterButton addTarget:self action:@selector(enterButtonClicked:) forControlEvents:UIControlEventTouchUpInside];
 }
 
--(void)loadView{
+- (void)loadView {
 
     self.loginView = [[LoginView alloc] init];
     self.view = self.loginView;
 }
 
--(void)enterButtonClicked: (id)sender{
+- (void)enterButtonClicked:(id)sender {
+    
+    
     
     SchedulesTabBarViewController *schedulesTabBarViewController = [[SchedulesTabBarViewController alloc] init];
     [self presentViewController:schedulesTabBarViewController animated:YES completion:nil];
