@@ -49,17 +49,16 @@
     [super layoutSubviews];
 
     [self.titleLabel sizeToFit];
-    [self.titleLabel anchorTopCenterWithTopPadding:19 width:self.titleLabel.width height:self.titleLabel.height];
+    [self.titleLabel anchorTopCenterWithTopPadding:19 width:self.frame.size.width*0.9 height:self.titleLabel.height];
     
     [self.startDateLabel sizeToFit];
-    [self.startDateLabel anchorTopLeftWithLeftPadding:10 topPadding:4 width:self.startDateLabel.width height:self.startDateLabel.height];
+    [self.startDateLabel anchorTopLeftWithLeftPadding:10 topPadding:4 width:self.frame.size.width*0.9 height:self.startDateLabel.height];
     
     [self.startLocationLabel sizeToFit];
-    [self.startLocationLabel anchorTopLeftWithLeftPadding:25 topPadding:41 width:self.startLocationLabel.width height:self.startLocationLabel.height];
-    
+    [self.startLocationLabel anchorTopLeftWithLeftPadding:25 topPadding:41 width:self.frame.size.width*0.40 height:self.startLocationLabel.height];
     
     [self.destinationLabel sizeToFit];
-    [self.destinationLabel anchorTopRightWithRightPadding:25 topPadding:41 width:self.destinationLabel.width height:self.destinationLabel.height];
+    [self.destinationLabel anchorTopRightWithRightPadding:25 topPadding:41 width:self.frame.size.width*0.40 height:self.destinationLabel.height];
     
     
 }

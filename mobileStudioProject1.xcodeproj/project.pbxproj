@@ -11,6 +11,8 @@
 		7C040B0F1CEA7997000FC5C1 /* LoginView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C040B0E1CEA7997000FC5C1 /* LoginView.m */; };
 		7C040B131CEB73A9000FC5C1 /* CreateEventViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C040B121CEB73A9000FC5C1 /* CreateEventViewController.m */; };
 		7C040B161CEB73BA000FC5C1 /* CreateEventView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C040B151CEB73BA000FC5C1 /* CreateEventView.m */; };
+		7C040B1A1CECB314000FC5C1 /* CreateEvent2StepView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C040B191CECB314000FC5C1 /* CreateEvent2StepView.m */; };
+		7C040B1D1CECB327000FC5C1 /* CreateEvent2StepViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C040B1C1CECB327000FC5C1 /* CreateEvent2StepViewController.m */; };
 		7C17D3BC1CCFC26000672EB6 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C17D3BB1CCFC26000672EB6 /* main.m */; };
 		7C17D3BF1CCFC26000672EB6 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C17D3BE1CCFC26000672EB6 /* AppDelegate.m */; };
 		7C17D3C71CCFC26000672EB6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7C17D3C61CCFC26000672EB6 /* Assets.xcassets */; };
@@ -38,6 +40,10 @@
 		7C040B121CEB73A9000FC5C1 /* CreateEventViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CreateEventViewController.m; sourceTree = "<group>"; };
 		7C040B141CEB73BA000FC5C1 /* CreateEventView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CreateEventView.h; sourceTree = "<group>"; };
 		7C040B151CEB73BA000FC5C1 /* CreateEventView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CreateEventView.m; sourceTree = "<group>"; };
+		7C040B181CECB314000FC5C1 /* CreateEvent2StepView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CreateEvent2StepView.h; sourceTree = "<group>"; };
+		7C040B191CECB314000FC5C1 /* CreateEvent2StepView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CreateEvent2StepView.m; sourceTree = "<group>"; };
+		7C040B1B1CECB327000FC5C1 /* CreateEvent2StepViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CreateEvent2StepViewController.h; sourceTree = "<group>"; };
+		7C040B1C1CECB327000FC5C1 /* CreateEvent2StepViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CreateEvent2StepViewController.m; sourceTree = "<group>"; };
 		7C17D3B71CCFC26000672EB6 /* mobileStudioProject1.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = mobileStudioProject1.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7C17D3BB1CCFC26000672EB6 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		7C17D3BD1CCFC26000672EB6 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -120,6 +126,17 @@
 			path = CreateEventViewController;
 			sourceTree = "<group>";
 		};
+		7C040B171CECB2FE000FC5C1 /* CreateEvent2StepViewController */ = {
+			isa = PBXGroup;
+			children = (
+				7C040B1B1CECB327000FC5C1 /* CreateEvent2StepViewController.h */,
+				7C040B1C1CECB327000FC5C1 /* CreateEvent2StepViewController.m */,
+				7C040B181CECB314000FC5C1 /* CreateEvent2StepView.h */,
+				7C040B191CECB314000FC5C1 /* CreateEvent2StepView.m */,
+			);
+			path = CreateEvent2StepViewController;
+			sourceTree = "<group>";
+		};
 		7C17D3AE1CCFC26000672EB6 = {
 			isa = PBXGroup;
 			children = (
@@ -164,6 +181,7 @@
 		7C9FC3091CCFDA9900498273 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				7C040B171CECB2FE000FC5C1 /* CreateEvent2StepViewController */,
 				7C040B101CEB736C000FC5C1 /* CreateEventViewController */,
 				7C040B091CEA7964000FC5C1 /* LoginViewController */,
 				7CCDCE221CEA0BD900D12578 /* SchedulesTabBarViewController */,
@@ -377,6 +395,7 @@
 				7CA64F9F1CD8F49600FB55B3 /* Member.m in Sources */,
 				7C040B131CEB73A9000FC5C1 /* CreateEventViewController.m in Sources */,
 				7C17D3BF1CCFC26000672EB6 /* AppDelegate.m in Sources */,
+				7C040B1A1CECB314000FC5C1 /* CreateEvent2StepView.m in Sources */,
 				7C040B0F1CEA7997000FC5C1 /* LoginView.m in Sources */,
 				7C040B0C1CEA7987000FC5C1 /* LoginViewController.m in Sources */,
 				7C9FC3171CCFDA9900498273 /* ScheduleViewController.m in Sources */,
@@ -389,6 +408,7 @@
 				7CCDCE281CEA11B400D12578 /* SchedulesTabBarViewController.m in Sources */,
 				7C040B161CEB73BA000FC5C1 /* CreateEventView.m in Sources */,
 				7C9FC31C1CCFDAA900498273 /* ScheduleItem.m in Sources */,
+				7C040B1D1CECB327000FC5C1 /* CreateEvent2StepViewController.m in Sources */,
 				7C9FC3151CCFDA9900498273 /* ScheduleItemViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

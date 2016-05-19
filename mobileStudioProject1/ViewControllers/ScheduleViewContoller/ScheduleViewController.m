@@ -2,6 +2,7 @@
 #import "ScheduleItemViewController.h"
 #import "DateTools.h"
 #import "ScheduleTableViewCell.h"
+#import "CreateEventViewController.h"
 
 @interface ScheduleViewController()
 
@@ -15,8 +16,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self.view setBackgroundColor: [UIColor whiteColor]];
-    
-  
+     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(addEventClicked:)];
     
     [self.scheduleView.tableView reloadData];
     
@@ -70,5 +70,17 @@
     self.scheduleView.tableView.delegate = self;
     self.scheduleView.tableView.dataSource = self;
 }
+
+-(void)addEventClicked: (id)sender{
+    CreateEventViewController *createEventViewController = [[CreateEventViewController alloc] init];
+    createEventViewController.delegate = self;
+    [self.navigationController pushViewController:createEventViewController animated:YES];
+}
+
+-(void)didCreateSheduleItem:(ScheduleItem *)scheduleItem{
+    [self.schedules addObject:scheduleItem];
+    [self.scheduleView.tableView reloadData];
+}
+
 
 @end

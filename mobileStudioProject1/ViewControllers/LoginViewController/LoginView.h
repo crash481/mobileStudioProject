@@ -1,6 +1,6 @@
 #import <UIKit/UIKit.h>
 
-@interface LoginView : UIView
+@interface LoginView : UIView<UITextFieldDelegate>
 
 @property (readonly)UIButton *loginButton;
 @property (readonly)UIButton *registrationButton;

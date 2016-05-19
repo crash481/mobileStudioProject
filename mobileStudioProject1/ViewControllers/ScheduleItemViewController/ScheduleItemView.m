@@ -95,6 +95,7 @@
     destinationPin.title = @"Finish";
     
     [self.mapView addAnnotation:startPin];
+    
     [self.mapView addAnnotation:destinationPin];
     
     self.mapView.showsUserLocation = YES;

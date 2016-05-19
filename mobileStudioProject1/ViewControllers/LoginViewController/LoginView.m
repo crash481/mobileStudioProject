@@ -23,6 +23,7 @@
         self.loginTextField.leftView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"LoginImage"]];
         [self.loginTextField setBorderStyle:UITextBorderStyleRoundedRect];
         [self.loginTextField setPlaceholder:@"Логин"];
+        [self.loginTextField setDelegate:self];
         
         self.passwordTextField = [[UITextField alloc] init];
         self.passwordTextField.backgroundColor = [UIColor lightGrayColor];
@@ -31,6 +32,7 @@
         self.passwordTextField.leftView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"PasswordImage"]];
         [self.passwordTextField setBorderStyle:UITextBorderStyleRoundedRect];
         [self.passwordTextField setPlaceholder:@"Пароль"];
+        [self.passwordTextField setDelegate:self];
         
         
         self.loginButton = [UIButton buttonWithType:UIButtonTypeSystem];
@@ -67,4 +69,23 @@
     [self.enterButton anchorBottomCenterWithBottomPadding:20 width:200 height:25];
 }
 
+- (BOOL)textFieldShouldReturn:(UITextField *)textField{
+    
+    [textField resignFirstResponder];
+    return  YES;
+}
+
+- (BOOL)textFieldShouldBeginEditing:(UITextField *)textField
+{
+    [textField.layer setBorderColor: [[UIColor lightTextColor] CGColor] ];
+    [textField.layer setBorderWidth:1.5];
+    [textField.layer setCornerRadius:6];
+    return YES;
+}
+
+- (BOOL)textFieldShouldEndEditing:(UITextField *)textField
+{
+    [textField.layer setBorderWidth:0];
+    return YES;
+}
 @end

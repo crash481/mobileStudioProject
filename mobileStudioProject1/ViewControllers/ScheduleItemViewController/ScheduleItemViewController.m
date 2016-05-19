@@ -1,6 +1,5 @@
 #import "ScheduleItemViewController.h"
 #import "EventMembersViewController.h"
-#import "CreateEventViewController.h"
 
 @interface ScheduleItemViewController ()
 
@@ -15,7 +14,6 @@
     [super viewDidLoad];
     [self.view setBackgroundColor: [UIColor whiteColor]];
     self.navigationItem.title = self.scheduleItem.scheduleItemTitle;
-    self.navigationItem.RightBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(addEventClicked:)];
     self.scheduleItemView.mapView.delegate = self;
     [self.scheduleItemView configureData: self.scheduleItem];
     [self.scheduleItemView.membersButton addTarget:self action:@selector(membersButtonClicked:) forControlEvents:UIControlEventTouchUpInside];
@@ -49,10 +47,7 @@
     
 }
 
--(void)addEventClicked: (id)sender{
-    CreateEventViewController *createEventViewController = [[CreateEventViewController alloc] init];
-    [self.navigationController pushViewController:createEventViewController animated:YES];
-}
+
 
 - (void)mapView:(MKMapView *)mapView didUpdateUserLocation:(MKUserLocation *)userLocation{
   
