@@ -1,8 +1,8 @@
-#import "ScheduleItemView.h"
+#import "RaceView.h"
 #import "UIView+Facade.h"
 #import "NSDate+DateTools.h"
 
-@interface ScheduleItemView()
+@interface RaceView()
 
 @property UILabel *startDateLabel;
 @property UILabel *startLocationLabel;
@@ -18,7 +18,7 @@
 @end
 
 
-@implementation ScheduleItemView
+@implementation RaceView
 
 - (instancetype) initWithFrame:(CGRect)frame{
     
@@ -80,7 +80,7 @@
     [self.mapView alignUnder:self.joinButton centeredFillingWidthAndHeightWithLeftAndRightPadding:0 topAndBottomPadding:0];
 
 }
--(void) configureData: (ScheduleItem*)scheduleItem{
+-(void) configureData: (Race*)scheduleItem{
     
     self.startLocationLabel.text = scheduleItem.startLocation;
     self.destinationLabel.text = scheduleItem.destination;

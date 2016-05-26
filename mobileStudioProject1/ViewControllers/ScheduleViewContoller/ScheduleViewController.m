@@ -1,12 +1,12 @@
 #import "ScheduleViewController.h"
-#import "ScheduleItemViewController.h"
+#import "RaceViewController.h"
 #import "DateTools.h"
 #import "ScheduleTableViewCell.h"
-#import "CreateEventViewController.h"
+#import "CreateRaceViewController.h"
 
 @interface ScheduleViewController()
 
-@property NSMutableArray<ScheduleItem*> *schedules;
+@property NSMutableArray<Race*> *schedules;
 @property ScheduleView *scheduleView;
 
 @end
@@ -56,9 +56,9 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     
-    ScheduleItem *scheduleItem = self.schedules[indexPath.row];
+    Race *scheduleItem = self.schedules[indexPath.row];
     
-    ScheduleItemViewController *scheduleItemViewController = [[ScheduleItemViewController alloc] initWithScheduleItem:scheduleItem];
+    RaceViewController *scheduleItemViewController = [[RaceViewController alloc] initWithRace:scheduleItem];
     [self.navigationController pushViewController:scheduleItemViewController animated:YES];
     
     
@@ -72,12 +72,12 @@
 }
 
 -(void)addEventClicked: (id)sender{
-    CreateEventViewController *createEventViewController = [[CreateEventViewController alloc] init];
+    CreateRaceViewController *createEventViewController = [[CreateRaceViewController alloc] init];
     createEventViewController.delegate = self;
     [self.navigationController pushViewController:createEventViewController animated:YES];
 }
 
--(void)didCreateSheduleItem:(ScheduleItem *)scheduleItem{
+-(void)didCreateSheduleItem:(Race *)scheduleItem{
     [self.schedules addObject:scheduleItem];
     [self.scheduleView.tableView reloadData];
 }

@@ -1,6 +1,6 @@
-#import "ScheduleItem.h"
+#import "Race.h"
 
-@implementation ScheduleItem
+@implementation Race
 
 -(instancetype) initWithTitle: (NSString*)title StartDate: (NSDate*) startDate Location: (NSString*)location Destination: (NSString*) destination StartCoordinate: (CLLocationCoordinate2D)startCoordinate AndDestinationCoordinate: (CLLocationCoordinate2D) destinationCoordinate{
     

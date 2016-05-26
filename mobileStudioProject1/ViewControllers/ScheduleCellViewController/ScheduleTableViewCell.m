@@ -65,7 +65,7 @@
     
 }
 
-- (void)configureData: (ScheduleItem*)scheduleItem {
+- (void)configureData: (Race*)scheduleItem {
     
     self.titleLabel.text = scheduleItem.scheduleItemTitle;
     self.startDateLabel.text = [scheduleItem.startDate formattedDateWithFormat:@"dd MMMM YYYY в HH:mm" locale:[[NSLocale alloc]initWithLocaleIdentifier:@"ru_RU"]];

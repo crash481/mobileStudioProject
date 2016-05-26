@@ -1,14 +1,14 @@
-#import "ScheduleItemViewController.h"
+#import "RaceViewController.h"
 #import "EventMembersViewController.h"
 
-@interface ScheduleItemViewController ()
+@interface RaceViewController ()
 
-@property (readwrite) ScheduleItem* scheduleItem;
-@property ScheduleItemView *scheduleItemView;
+@property (readwrite) Race* scheduleItem;
+@property RaceView *scheduleItemView;
 
 @end
 
-@implementation ScheduleItemViewController
+@implementation RaceViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -21,14 +21,14 @@
 }
 
 -(void)loadView{
-    self.scheduleItemView = [[ScheduleItemView alloc] init];
+    self.scheduleItemView = [[RaceView alloc] init];
     self.view = self.scheduleItemView;
     
 }
 
 
 
--(instancetype) initWithScheduleItem: (ScheduleItem*) scheduleItem{
+-(instancetype) initWithRace: (Race*) scheduleItem{
     
     if(self = [super init]){
         self.scheduleItem = scheduleItem;

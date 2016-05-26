@@ -9,19 +9,19 @@
 /* Begin PBXBuildFile section */
 		7C040B0C1CEA7987000FC5C1 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C040B0B1CEA7987000FC5C1 /* LoginViewController.m */; };
 		7C040B0F1CEA7997000FC5C1 /* LoginView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C040B0E1CEA7997000FC5C1 /* LoginView.m */; };
-		7C040B131CEB73A9000FC5C1 /* CreateEventViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C040B121CEB73A9000FC5C1 /* CreateEventViewController.m */; };
-		7C040B161CEB73BA000FC5C1 /* CreateEventView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C040B151CEB73BA000FC5C1 /* CreateEventView.m */; };
-		7C040B1A1CECB314000FC5C1 /* CreateEvent2StepView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C040B191CECB314000FC5C1 /* CreateEvent2StepView.m */; };
-		7C040B1D1CECB327000FC5C1 /* CreateEvent2StepViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C040B1C1CECB327000FC5C1 /* CreateEvent2StepViewController.m */; };
+		7C040B131CEB73A9000FC5C1 /* CreateRaceViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C040B121CEB73A9000FC5C1 /* CreateRaceViewController.m */; };
+		7C040B161CEB73BA000FC5C1 /* CreateRaceView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C040B151CEB73BA000FC5C1 /* CreateRaceView.m */; };
+		7C040B1A1CECB314000FC5C1 /* CreateRace2StepView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C040B191CECB314000FC5C1 /* CreateRace2StepView.m */; };
+		7C040B1D1CECB327000FC5C1 /* CreateRace2StepViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C040B1C1CECB327000FC5C1 /* CreateRace2StepViewController.m */; };
 		7C17D3BC1CCFC26000672EB6 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C17D3BB1CCFC26000672EB6 /* main.m */; };
 		7C17D3BF1CCFC26000672EB6 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C17D3BE1CCFC26000672EB6 /* AppDelegate.m */; };
 		7C17D3C71CCFC26000672EB6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7C17D3C61CCFC26000672EB6 /* Assets.xcassets */; };
 		7C17D3CA1CCFC26000672EB6 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7C17D3C81CCFC26000672EB6 /* LaunchScreen.storyboard */; };
-		7C9FC3141CCFDA9900498273 /* ScheduleItemView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C9FC30C1CCFDA9900498273 /* ScheduleItemView.m */; };
-		7C9FC3151CCFDA9900498273 /* ScheduleItemViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C9FC30E1CCFDA9900498273 /* ScheduleItemViewController.m */; };
+		7C9FC3141CCFDA9900498273 /* RaceView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C9FC30C1CCFDA9900498273 /* RaceView.m */; };
+		7C9FC3151CCFDA9900498273 /* RaceViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C9FC30E1CCFDA9900498273 /* RaceViewController.m */; };
 		7C9FC3161CCFDA9900498273 /* ScheduleView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C9FC3111CCFDA9900498273 /* ScheduleView.m */; };
 		7C9FC3171CCFDA9900498273 /* ScheduleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C9FC3131CCFDA9900498273 /* ScheduleViewController.m */; };
-		7C9FC31C1CCFDAA900498273 /* ScheduleItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C9FC31B1CCFDAA900498273 /* ScheduleItem.m */; };
+		7C9FC31C1CCFDAA900498273 /* Race.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C9FC31B1CCFDAA900498273 /* Race.m */; };
 		7CA64F981CD8E62500FB55B3 /* EventMembersViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CA64F971CD8E62500FB55B3 /* EventMembersViewController.m */; };
 		7CA64F9B1CD8E79A00FB55B3 /* EventMembersView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CA64F9A1CD8E79A00FB55B3 /* EventMembersView.m */; };
 		7CA64F9F1CD8F49600FB55B3 /* Member.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CA64F9E1CD8F49600FB55B3 /* Member.m */; };
@@ -36,14 +36,14 @@
 		7C040B0B1CEA7987000FC5C1 /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
 		7C040B0D1CEA7997000FC5C1 /* LoginView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginView.h; sourceTree = "<group>"; };
 		7C040B0E1CEA7997000FC5C1 /* LoginView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginView.m; sourceTree = "<group>"; };
-		7C040B111CEB73A9000FC5C1 /* CreateEventViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CreateEventViewController.h; sourceTree = "<group>"; };
-		7C040B121CEB73A9000FC5C1 /* CreateEventViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CreateEventViewController.m; sourceTree = "<group>"; };
-		7C040B141CEB73BA000FC5C1 /* CreateEventView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CreateEventView.h; sourceTree = "<group>"; };
-		7C040B151CEB73BA000FC5C1 /* CreateEventView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CreateEventView.m; sourceTree = "<group>"; };
-		7C040B181CECB314000FC5C1 /* CreateEvent2StepView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CreateEvent2StepView.h; sourceTree = "<group>"; };
-		7C040B191CECB314000FC5C1 /* CreateEvent2StepView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CreateEvent2StepView.m; sourceTree = "<group>"; };
-		7C040B1B1CECB327000FC5C1 /* CreateEvent2StepViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CreateEvent2StepViewController.h; sourceTree = "<group>"; };
-		7C040B1C1CECB327000FC5C1 /* CreateEvent2StepViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CreateEvent2StepViewController.m; sourceTree = "<group>"; };
+		7C040B111CEB73A9000FC5C1 /* CreateRaceViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CreateRaceViewController.h; sourceTree = "<group>"; };
+		7C040B121CEB73A9000FC5C1 /* CreateRaceViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CreateRaceViewController.m; sourceTree = "<group>"; };
+		7C040B141CEB73BA000FC5C1 /* CreateRaceView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CreateRaceView.h; sourceTree = "<group>"; };
+		7C040B151CEB73BA000FC5C1 /* CreateRaceView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CreateRaceView.m; sourceTree = "<group>"; };
+		7C040B181CECB314000FC5C1 /* CreateRace2StepView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CreateRace2StepView.h; sourceTree = "<group>"; };
+		7C040B191CECB314000FC5C1 /* CreateRace2StepView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CreateRace2StepView.m; sourceTree = "<group>"; };
+		7C040B1B1CECB327000FC5C1 /* CreateRace2StepViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CreateRace2StepViewController.h; sourceTree = "<group>"; };
+		7C040B1C1CECB327000FC5C1 /* CreateRace2StepViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CreateRace2StepViewController.m; sourceTree = "<group>"; };
 		7C17D3B71CCFC26000672EB6 /* mobileStudioProject1.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = mobileStudioProject1.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7C17D3BB1CCFC26000672EB6 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		7C17D3BD1CCFC26000672EB6 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -51,16 +51,16 @@
 		7C17D3C61CCFC26000672EB6 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		7C17D3C91CCFC26000672EB6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		7C17D3CB1CCFC26000672EB6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		7C9FC30B1CCFDA9900498273 /* ScheduleItemView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ScheduleItemView.h; sourceTree = "<group>"; };
-		7C9FC30C1CCFDA9900498273 /* ScheduleItemView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ScheduleItemView.m; sourceTree = "<group>"; };
-		7C9FC30D1CCFDA9900498273 /* ScheduleItemViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ScheduleItemViewController.h; sourceTree = "<group>"; };
-		7C9FC30E1CCFDA9900498273 /* ScheduleItemViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ScheduleItemViewController.m; sourceTree = "<group>"; };
+		7C9FC30B1CCFDA9900498273 /* RaceView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RaceView.h; sourceTree = "<group>"; };
+		7C9FC30C1CCFDA9900498273 /* RaceView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RaceView.m; sourceTree = "<group>"; };
+		7C9FC30D1CCFDA9900498273 /* RaceViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RaceViewController.h; sourceTree = "<group>"; };
+		7C9FC30E1CCFDA9900498273 /* RaceViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RaceViewController.m; sourceTree = "<group>"; };
 		7C9FC3101CCFDA9900498273 /* ScheduleView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ScheduleView.h; sourceTree = "<group>"; };
 		7C9FC3111CCFDA9900498273 /* ScheduleView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ScheduleView.m; sourceTree = "<group>"; };
 		7C9FC3121CCFDA9900498273 /* ScheduleViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ScheduleViewController.h; sourceTree = "<group>"; };
 		7C9FC3131CCFDA9900498273 /* ScheduleViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ScheduleViewController.m; sourceTree = "<group>"; };
-		7C9FC31A1CCFDAA900498273 /* ScheduleItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ScheduleItem.h; sourceTree = "<group>"; };
-		7C9FC31B1CCFDAA900498273 /* ScheduleItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ScheduleItem.m; sourceTree = "<group>"; };
+		7C9FC31A1CCFDAA900498273 /* Race.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Race.h; sourceTree = "<group>"; };
+		7C9FC31B1CCFDAA900498273 /* Race.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Race.m; sourceTree = "<group>"; };
 		7CA64F961CD8E62500FB55B3 /* EventMembersViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EventMembersViewController.h; sourceTree = "<group>"; };
 		7CA64F971CD8E62500FB55B3 /* EventMembersViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EventMembersViewController.m; sourceTree = "<group>"; };
 		7CA64F991CD8E79A00FB55B3 /* EventMembersView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EventMembersView.h; sourceTree = "<group>"; };
@@ -118,10 +118,10 @@
 		7C040B101CEB736C000FC5C1 /* CreateEventViewController */ = {
 			isa = PBXGroup;
 			children = (
-				7C040B111CEB73A9000FC5C1 /* CreateEventViewController.h */,
-				7C040B121CEB73A9000FC5C1 /* CreateEventViewController.m */,
-				7C040B141CEB73BA000FC5C1 /* CreateEventView.h */,
-				7C040B151CEB73BA000FC5C1 /* CreateEventView.m */,
+				7C040B111CEB73A9000FC5C1 /* CreateRaceViewController.h */,
+				7C040B121CEB73A9000FC5C1 /* CreateRaceViewController.m */,
+				7C040B141CEB73BA000FC5C1 /* CreateRaceView.h */,
+				7C040B151CEB73BA000FC5C1 /* CreateRaceView.m */,
 			);
 			path = CreateEventViewController;
 			sourceTree = "<group>";
@@ -129,10 +129,10 @@
 		7C040B171CECB2FE000FC5C1 /* CreateEvent2StepViewController */ = {
 			isa = PBXGroup;
 			children = (
-				7C040B1B1CECB327000FC5C1 /* CreateEvent2StepViewController.h */,
-				7C040B1C1CECB327000FC5C1 /* CreateEvent2StepViewController.m */,
-				7C040B181CECB314000FC5C1 /* CreateEvent2StepView.h */,
-				7C040B191CECB314000FC5C1 /* CreateEvent2StepView.m */,
+				7C040B1B1CECB327000FC5C1 /* CreateRace2StepViewController.h */,
+				7C040B1C1CECB327000FC5C1 /* CreateRace2StepViewController.m */,
+				7C040B181CECB314000FC5C1 /* CreateRace2StepView.h */,
+				7C040B191CECB314000FC5C1 /* CreateRace2StepView.m */,
 			);
 			path = CreateEvent2StepViewController;
 			sourceTree = "<group>";
@@ -196,10 +196,10 @@
 		7C9FC30A1CCFDA9900498273 /* ScheduleItemViewController */ = {
 			isa = PBXGroup;
 			children = (
-				7C9FC30B1CCFDA9900498273 /* ScheduleItemView.h */,
-				7C9FC30C1CCFDA9900498273 /* ScheduleItemView.m */,
-				7C9FC30D1CCFDA9900498273 /* ScheduleItemViewController.h */,
-				7C9FC30E1CCFDA9900498273 /* ScheduleItemViewController.m */,
+				7C9FC30B1CCFDA9900498273 /* RaceView.h */,
+				7C9FC30C1CCFDA9900498273 /* RaceView.m */,
+				7C9FC30D1CCFDA9900498273 /* RaceViewController.h */,
+				7C9FC30E1CCFDA9900498273 /* RaceViewController.m */,
 			);
 			path = ScheduleItemViewController;
 			sourceTree = "<group>";
@@ -227,8 +227,8 @@
 		7C9FC3191CCFDAA900498273 /* ScheduleItem */ = {
 			isa = PBXGroup;
 			children = (
-				7C9FC31A1CCFDAA900498273 /* ScheduleItem.h */,
-				7C9FC31B1CCFDAA900498273 /* ScheduleItem.m */,
+				7C9FC31A1CCFDAA900498273 /* Race.h */,
+				7C9FC31B1CCFDAA900498273 /* Race.m */,
 			);
 			path = ScheduleItem;
 			sourceTree = "<group>";
@@ -393,23 +393,23 @@
 			buildActionMask = 2147483647;
 			files = (
 				7CA64F9F1CD8F49600FB55B3 /* Member.m in Sources */,
-				7C040B131CEB73A9000FC5C1 /* CreateEventViewController.m in Sources */,
+				7C040B131CEB73A9000FC5C1 /* CreateRaceViewController.m in Sources */,
 				7C17D3BF1CCFC26000672EB6 /* AppDelegate.m in Sources */,
-				7C040B1A1CECB314000FC5C1 /* CreateEvent2StepView.m in Sources */,
+				7C040B1A1CECB314000FC5C1 /* CreateRace2StepView.m in Sources */,
 				7C040B0F1CEA7997000FC5C1 /* LoginView.m in Sources */,
 				7C040B0C1CEA7987000FC5C1 /* LoginViewController.m in Sources */,
 				7C9FC3171CCFDA9900498273 /* ScheduleViewController.m in Sources */,
 				7C17D3BC1CCFC26000672EB6 /* main.m in Sources */,
 				7CA64F9B1CD8E79A00FB55B3 /* EventMembersView.m in Sources */,
 				7C9FC3161CCFDA9900498273 /* ScheduleView.m in Sources */,
-				7C9FC3141CCFDA9900498273 /* ScheduleItemView.m in Sources */,
+				7C9FC3141CCFDA9900498273 /* RaceView.m in Sources */,
 				7CA64F981CD8E62500FB55B3 /* EventMembersViewController.m in Sources */,
 				7CAC73F71CD263EB007140C5 /* ScheduleTableViewCell.m in Sources */,
 				7CCDCE281CEA11B400D12578 /* SchedulesTabBarViewController.m in Sources */,
-				7C040B161CEB73BA000FC5C1 /* CreateEventView.m in Sources */,
-				7C9FC31C1CCFDAA900498273 /* ScheduleItem.m in Sources */,
-				7C040B1D1CECB327000FC5C1 /* CreateEvent2StepViewController.m in Sources */,
-				7C9FC3151CCFDA9900498273 /* ScheduleItemViewController.m in Sources */,
+				7C040B161CEB73BA000FC5C1 /* CreateRaceView.m in Sources */,
+				7C9FC31C1CCFDAA900498273 /* Race.m in Sources */,
+				7C040B1D1CECB327000FC5C1 /* CreateRace2StepViewController.m in Sources */,
+				7C9FC3151CCFDA9900498273 /* RaceViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

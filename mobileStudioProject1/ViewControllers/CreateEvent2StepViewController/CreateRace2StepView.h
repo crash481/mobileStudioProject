@@ -1,7 +1,7 @@
 #import <UIKit/UIKit.h>
 #import <MapKit/MapKit.h>
 
-@interface CreateEvent2StepView : UIView<UITextFieldDelegate>
+@interface CreateRace2StepView : UIView<UITextFieldDelegate>
 
 @property MKMapView *mapView;
 @property UITextField *startPlaceTextField;

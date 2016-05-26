@@ -1,13 +1,13 @@
-#import "CreateEvent2StepView.h"
+#import "CreateRace2StepView.h"
 #import "UIView+Facade.h"
 
-@interface CreateEvent2StepView()
+@interface CreateRace2StepView()
 
 @property UIButton *createButton;
 
 @end
 
-@implementation CreateEvent2StepView
+@implementation CreateRace2StepView
 
 - (instancetype)initWithFrame:(CGRect)frame{
     

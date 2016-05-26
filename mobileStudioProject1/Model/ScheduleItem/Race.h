@@ -1,7 +1,7 @@
 #import <Foundation/Foundation.h>
 #import <MapKit/MapKit.h>
 
-@interface ScheduleItem : NSObject
+@interface Race : NSObject
 
 @property NSString *scheduleItemTitle;
 @property NSDate *startDate;

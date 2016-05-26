@@ -13,16 +13,16 @@
     
     self.tabBar.translucent = NO;
     
-    NSMutableArray<ScheduleItem*> *skateShedules = [[NSMutableArray alloc] init];
+    NSMutableArray<Race*> *skateShedules = [[NSMutableArray alloc] init];
     NSDate *startDate = [NSDate dateWithYear:2016 month:5 day:14 hour:17 minute:00 second:00];
-    [skateShedules addObject: [[ScheduleItem alloc] initWithTitle:@"Гонка до Адмиралтейской" StartDate:startDate  Location:@"Петроградская" Destination:@"Адмиралтейская" StartCoordinate:CLLocationCoordinate2DMake(59.93, 30.338) AndDestinationCoordinate:CLLocationCoordinate2DMake(59.943, 30.36) ]];
-    [skateShedules addObject: [[ScheduleItem alloc] initWithTitle:@"Гоняем по отдыху" StartDate:startDate  Location:@"Петроградская" Destination:@"Озерки" StartCoordinate:CLLocationCoordinate2DMake(59.93, 30.338) AndDestinationCoordinate:CLLocationCoordinate2DMake(59.943, 30.36) ]];
-    [skateShedules addObject: [[ScheduleItem alloc] initWithTitle:@"Учимся слайдить итд." StartDate:startDate  Location:@"Черная речка" Destination:@"Черная речка" StartCoordinate:CLLocationCoordinate2DMake(59.93, 30.338) AndDestinationCoordinate:CLLocationCoordinate2DMake(59.943, 30.36) ]];
+    [skateShedules addObject: [[Race alloc] initWithTitle:@"Гонка до Адмиралтейской" StartDate:startDate  Location:@"Петроградская" Destination:@"Адмиралтейская" StartCoordinate:CLLocationCoordinate2DMake(59.93, 30.338) AndDestinationCoordinate:CLLocationCoordinate2DMake(59.943, 30.36) ]];
+    [skateShedules addObject: [[Race alloc] initWithTitle:@"Гоняем по отдыху" StartDate:startDate  Location:@"Петроградская" Destination:@"Озерки" StartCoordinate:CLLocationCoordinate2DMake(59.93, 30.338) AndDestinationCoordinate:CLLocationCoordinate2DMake(59.943, 30.36) ]];
+    [skateShedules addObject: [[Race alloc] initWithTitle:@"Учимся слайдить итд." StartDate:startDate  Location:@"Черная речка" Destination:@"Черная речка" StartCoordinate:CLLocationCoordinate2DMake(59.93, 30.338) AndDestinationCoordinate:CLLocationCoordinate2DMake(59.943, 30.36) ]];
     
     
-    NSMutableArray<ScheduleItem*> *bikeShedules = [[NSMutableArray alloc] init];
-    [bikeShedules addObject: [[ScheduleItem alloc] initWithTitle:@"Обзорный заезд по центру" StartDate:startDate  Location:@"Центральный район" Destination:@"Центральный район" StartCoordinate:CLLocationCoordinate2DMake(59.93, 30.338) AndDestinationCoordinate:CLLocationCoordinate2DMake(59.943, 30.36) ]];
-    [bikeShedules addObject: [[ScheduleItem alloc] initWithTitle:@"Научим трюкам" StartDate:startDate  Location:@"Адмиралтейская" Destination:@"Адмиралтейская" StartCoordinate:CLLocationCoordinate2DMake(59.99, 30.311) AndDestinationCoordinate:CLLocationCoordinate2DMake(59.933, 30.39) ]];
+    NSMutableArray<Race*> *bikeShedules = [[NSMutableArray alloc] init];
+    [bikeShedules addObject: [[Race alloc] initWithTitle:@"Обзорный заезд по центру" StartDate:startDate  Location:@"Центральный район" Destination:@"Центральный район" StartCoordinate:CLLocationCoordinate2DMake(59.93, 30.338) AndDestinationCoordinate:CLLocationCoordinate2DMake(59.943, 30.36) ]];
+    [bikeShedules addObject: [[Race alloc] initWithTitle:@"Научим трюкам" StartDate:startDate  Location:@"Адмиралтейская" Destination:@"Адмиралтейская" StartCoordinate:CLLocationCoordinate2DMake(59.99, 30.311) AndDestinationCoordinate:CLLocationCoordinate2DMake(59.933, 30.39) ]];
     
     
     

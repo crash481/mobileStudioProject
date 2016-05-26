@@ -1,8 +1,8 @@
 #import <UIKit/UIKit.h>
-#import "ScheduleItem.h"
+#import "Race.h"
 
 @interface ScheduleTableViewCell : UITableViewCell
 
-- (void)configureData: (ScheduleItem*)scheduleItem;
+- (void)configureData: (Race*)scheduleItem;
 
 @end

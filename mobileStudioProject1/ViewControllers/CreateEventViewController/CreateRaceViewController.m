@@ -1,17 +1,17 @@
-#import "CreateEventViewController.h"
-#import "CreateEventView.h"
-#import "CreateEvent2StepViewController.h"
+#import "CreateRaceViewController.h"
+#import "CreateRaceView.h"
+#import "CreateRace2StepViewController.h"
 
-@interface CreateEventViewController ()
+@interface CreateRaceViewController ()
 
-@property CreateEventView *createEventView;
+@property CreateRaceView *createEventView;
 
 @property NSString *eventTitle;
 @property NSDate *eventDate;
 
 @end
 
-@implementation CreateEventViewController
+@implementation CreateRaceViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -22,7 +22,7 @@
 
 - (void)loadView{
     
-    self.createEventView = [[CreateEventView alloc] init];
+    self.createEventView = [[CreateRaceView alloc] init];
     self.view = self.createEventView;
 }
 
@@ -32,7 +32,7 @@
         self.eventTitle = self.createEventView.titleTextField.text;
         self.eventDate = self.createEventView.datePicker.date;
         
-        CreateEvent2StepViewController *createEventStep2ViewController = [[CreateEvent2StepViewController alloc] initWithEventTitle:self.eventTitle andEventDate:self.eventDate];
+        CreateRace2StepViewController *createEventStep2ViewController = [[CreateRace2StepViewController alloc] initWithEventTitle:self.eventTitle andEventDate:self.eventDate];
         createEventStep2ViewController.delegate = self.delegate;
         [self.navigationController pushViewController:createEventStep2ViewController animated:YES];
     }

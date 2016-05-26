@@ -1,10 +1,10 @@
-#import "CreateEvent2StepViewController.h"
-#import "CreateEvent2StepView.h"
-#import "ScheduleItem.h"
+#import "CreateRace2StepViewController.h"
+#import "CreateRace2StepView.h"
+#import "Race.h"
 
-@interface CreateEvent2StepViewController ()
+@interface CreateRace2StepViewController ()
 
-@property CreateEvent2StepView *createEvent2StepView;
+@property CreateRace2StepView *createEvent2StepView;
 @property NSString *eventTitle;
 @property NSDate *eventDate;
 @property NSString *startLocation;
@@ -17,7 +17,7 @@
 
 @end
 
-@implementation CreateEvent2StepViewController
+@implementation CreateRace2StepViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -40,7 +40,7 @@
 - (void)loadView{
     [super loadView];
     
-    self.createEvent2StepView = [[CreateEvent2StepView alloc] init];
+    self.createEvent2StepView = [[CreateRace2StepView alloc] init];
     self.view = self.createEvent2StepView;
 }
 
@@ -69,7 +69,7 @@
     }
     self.startLocation = [[self.createEvent2StepView startPlaceTextField] text];
     self.destination = [[self.createEvent2StepView destinationPlaceTextField] text];
-    ScheduleItem *newSheduleItem = [[ScheduleItem alloc] initWithTitle:self.eventTitle StartDate:self.eventDate Location:self.startLocation Destination:self.destination StartCoordinate:self.startCoordinate AndDestinationCoordinate:self.destinationCoordinate];
+    Race *newSheduleItem = [[Race alloc] initWithTitle:self.eventTitle StartDate:self.eventDate Location:self.startLocation Destination:self.destination StartCoordinate:self.startCoordinate AndDestinationCoordinate:self.destinationCoordinate];
     
     [self.delegate didCreateSheduleItem:newSheduleItem];
     [self.navigationController popToViewController:(UIViewController*)self.delegate animated:YES];

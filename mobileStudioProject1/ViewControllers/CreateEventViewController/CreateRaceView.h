@@ -1,6 +1,6 @@
 #import <UIKit/UIKit.h>
 
-@interface CreateEventView : UIView<UITextFieldDelegate>
+@interface CreateRaceView : UIView<UITextFieldDelegate>
 
 @property (readonly)UITextField *titleTextField;
 @property (readonly)UIDatePicker *datePicker;

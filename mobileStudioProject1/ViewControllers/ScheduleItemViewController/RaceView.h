@@ -1,12 +1,12 @@
 #import <UIKit/UIKit.h>
-#import "ScheduleItem.h"
+#import "Race.h"
 #import <MapKit/MapKit.h>
 
-@interface ScheduleItemView : UIView
+@interface RaceView : UIView
 
 @property MKMapView *mapView;
 @property(readonly) UIButton *joinButton;
 @property(readonly) UIButton *membersButton;
--(void) configureData: (ScheduleItem*)scheduleItem ;
+-(void) configureData: (Race*)scheduleItem ;
 
 @end

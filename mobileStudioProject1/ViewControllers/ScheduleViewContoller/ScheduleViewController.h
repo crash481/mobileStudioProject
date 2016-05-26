@@ -1,10 +1,10 @@
 #import <UIKit/UIKit.h>
-#import "ScheduleItem.h"
+#import "Race.h"
 #import "ScheduleView.h"
 #import <MapKit/MapKit.h>
-#import "CreateEvent2StepViewController.h"
+#import "CreateRace2StepViewController.h"
 
-@interface ScheduleViewController : UIViewController<UITableViewDelegate, UITableViewDataSource,CLLocationManagerDelegate,CreateEvent2StepDelegate>
+@interface ScheduleViewController : UIViewController<UITableViewDelegate, UITableViewDataSource,CLLocationManagerDelegate,CreateRace2StepDelegate>
 
 
 -(instancetype)initWithSchedules: (NSArray*)schedules;

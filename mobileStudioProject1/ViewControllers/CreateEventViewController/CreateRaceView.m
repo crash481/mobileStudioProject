@@ -1,6 +1,6 @@
-#import "CreateEventView.h"
+#import "CreateRaceView.h"
 #import "UIView+Facade.h"
-@interface CreateEventView()
+@interface CreateRaceView()
 
 @property UITextField *titleTextField;
 @property UILabel *dateLabel;
@@ -11,7 +11,7 @@
 @end
 
 
-@implementation CreateEventView
+@implementation CreateRaceView
 
 -(instancetype)initWithFrame:(CGRect)frame{
     
