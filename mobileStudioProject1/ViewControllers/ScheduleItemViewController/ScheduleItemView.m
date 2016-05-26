@@ -23,6 +23,7 @@
 - (instancetype) initWithFrame:(CGRect)frame{
     
     if(self = [super initWithFrame:frame]){
+        [self setBackgroundColor:[UIColor whiteColor]];
         
         self.mapView = [[MKMapView alloc] init];
         self.startDateLabel = [[UILabel alloc] init];
@@ -64,22 +65,21 @@
 - (void)layoutSubviews{
     [super layoutSubviews];
     
-    [self.joinButton alignAbove:self.mapView withLeftPadding:20 bottomPadding:10 width:self.width * 0.42 height:30];
-    [self.membersButton alignAbove:self.mapView withRightPadding:20 bottomPadding:10 width:self.width * 0.42 height:30];
-    
-    [self.mapView anchorBottomCenterWithBottomPadding:0 width:self.width height:self.height * 0.45];
-    
     [self.startLocationText anchorTopLeftWithLeftPadding:10 topPadding:15 width:130 height:20];
     [self.destinationText alignUnder:self.startLocationText withLeftPadding:10 topPadding:5 width:130 height:20];
     [self.startDateText alignUnder:self.destinationText withLeftPadding:10 topPadding:5 width:130 height:20];
     
+    [self.startLocationLabel anchorTopLeftWithLeftPadding:145 topPadding:15 width:200 height:20];
+    [self.destinationLabel alignUnder:self.startLocationLabel withLeftPadding:145 topPadding:5 width:200 height:20];
+    [self.startDateLabel alignUnder:self.destinationLabel withLeftPadding:145 topPadding:5 width:200 height:20];
     
-    [self.startLocationLabel anchorTopLeftWithLeftPadding:150 topPadding:15 width:150 height:20];
-    [self.destinationLabel alignUnder:self.startLocationLabel withLeftPadding:150 topPadding:5 width:200 height:20];
-    [self.startDateLabel alignUnder:self.destinationLabel withLeftPadding:150 topPadding:5 width:200 height:20];
+    
+    [self.joinButton alignUnder:self.startDateLabel withLeftPadding:20 topPadding:self.frame.size.height*0.07 width:self.frame.size.width*0.42 height:35];
+    [self.membersButton alignUnder:self.startDateLabel withRightPadding:20 topPadding:self.frame.size.height*0.07 width:self.frame.size.width*0.42 height:35];
+    
+    [self.mapView alignUnder:self.joinButton centeredFillingWidthAndHeightWithLeftAndRightPadding:0 topAndBottomPadding:0];
+
 }
-
-
 -(void) configureData: (ScheduleItem*)scheduleItem{
     
     self.startLocationLabel.text = scheduleItem.startLocation;
@@ -88,14 +88,15 @@
     
     MKPointAnnotation *startPin = [[MKPointAnnotation alloc] init];
     startPin.coordinate = scheduleItem.startCoordinate;
+    startPin.subtitle = scheduleItem.startLocation;
     startPin.title = @"Start";
     
     MKPointAnnotation *destinationPin = [[MKPointAnnotation alloc] init];
     destinationPin.coordinate = scheduleItem.destinationCoordinate;
+    destinationPin.subtitle = scheduleItem.destination;
     destinationPin.title = @"Finish";
     
     [self.mapView addAnnotation:startPin];
-    
     [self.mapView addAnnotation:destinationPin];
     
     self.mapView.showsUserLocation = YES;

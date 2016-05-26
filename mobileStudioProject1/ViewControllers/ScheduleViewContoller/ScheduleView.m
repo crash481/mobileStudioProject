@@ -13,6 +13,7 @@
     
     if(self = [super initWithFrame:frame]){
         
+        [self setBackgroundColor: [UIColor whiteColor]];
         self.tableView = [[UITableView alloc] init];
         [self addSubview:self.tableView];
     }

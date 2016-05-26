@@ -72,7 +72,7 @@
     ScheduleItem *newSheduleItem = [[ScheduleItem alloc] initWithTitle:self.eventTitle StartDate:self.eventDate Location:self.startLocation Destination:self.destination StartCoordinate:self.startCoordinate AndDestinationCoordinate:self.destinationCoordinate];
     
     [self.delegate didCreateSheduleItem:newSheduleItem];
-    [self.navigationController popToViewController:self.delegate animated:YES];
+    [self.navigationController popToViewController:(UIViewController*)self.delegate animated:YES];
     
 }
 
@@ -85,20 +85,69 @@
         CGPoint touchPoint = [gestureRecognizer locationInView:self.createEvent2StepView.mapView];
         CLLocationCoordinate2D tapLocation = [self.createEvent2StepView.mapView convertPoint:touchPoint toCoordinateFromView:self.createEvent2StepView.mapView];
         
-        
         [geocoder reverseGeocodeLocation: [[CLLocation alloc] initWithLatitude:tapLocation.latitude longitude:tapLocation.longitude]  completionHandler:
          ^(NSArray<CLPlacemark*> *_Nullable placemarks, NSError *_Nullable error){
-             for(int i = 0; i<[placemarks count]; i++){
                   if(self.createEvent2StepView.destinationPlaceTextField.isEditing){
-                      [self.createEvent2StepView.destinationPlaceTextField setText:[placemarks[i] name]];
+                      [self.createEvent2StepView.destinationPlaceTextField setText:[placemarks[0] name]];
+                      self.destinationCoordinate = tapLocation;
+                      
+                      MKPointAnnotation *destinationPin = [[MKPointAnnotation alloc] init];
+                      destinationPin.coordinate = self.destinationCoordinate;
+                      destinationPin.title = [placemarks[0] name];
+                      destinationPin.title = @"Finish";
+                      
+                      for (MKPointAnnotation *annotation in [self.createEvent2StepView.mapView annotations]) {
+                          if([annotation.title isEqualToString:@"Finish"]){
+                              [self.createEvent2StepView.mapView removeAnnotation:annotation];
+                          }
+                      }
+                      [self.createEvent2StepView.mapView addAnnotation:destinationPin];
                   }
                   else{
-                      [self.createEvent2StepView.startPlaceTextField setText:[placemarks[i] name]];
+                      [self.createEvent2StepView.startPlaceTextField setText:[placemarks[0] name]];
                       [self.createEvent2StepView.destinationPlaceTextField becomeFirstResponder];
+                      self.startCoordinate = tapLocation;
+                      
+                      MKPointAnnotation *startPin = [[MKPointAnnotation alloc] init];
+                      startPin.coordinate = self.startCoordinate;
+                      startPin.title = @"Start";
+
+                      for (MKPointAnnotation *annotation in [self.createEvent2StepView.mapView annotations]) {
+                          if([annotation.title isEqualToString:@"Start"]){
+                              [self.createEvent2StepView.mapView removeAnnotation:annotation];
+                          }
+                      }
+                      [self.createEvent2StepView.mapView addAnnotation:startPin];
                   }
-             }
          }];
     }
 }
 
+
+- (MKAnnotationView *)mapView:(MKMapView *)mapView viewForAnnotation:(id<MKAnnotation>)annotation{
+    
+    static NSString *startAnnotationIdentifier = @"Start";
+    static NSString *destinationAnnotationIdentifier = @"Finish";
+    
+    if([annotation.title isEqualToString:@"Start"]){
+        MKAnnotationView* startAnnotationView = [self.createEvent2StepView.mapView dequeueReusableAnnotationViewWithIdentifier:startAnnotationIdentifier];
+        if(!startAnnotationView){
+            startAnnotationView = [[MKAnnotationView alloc] initWithAnnotation:annotation reuseIdentifier:startAnnotationIdentifier];
+            startAnnotationView.image = [UIImage imageNamed:@"StartPin"];
+            startAnnotationView.centerOffset = CGPointMake(0, -[UIImage imageNamed:@"StartPin"].size.height/2);
+        }
+        return startAnnotationView;
+    }
+    else if([annotation.title isEqualToString:@"Finish"]){
+        MKAnnotationView* destinationAnnotationView = [self.createEvent2StepView.mapView dequeueReusableAnnotationViewWithIdentifier:destinationAnnotationIdentifier];
+        if(!destinationAnnotationView){
+            destinationAnnotationView = [[MKAnnotationView alloc] initWithAnnotation:annotation reuseIdentifier:destinationAnnotationIdentifier];
+            [destinationAnnotationView setContentMode:UIViewContentModeTop];
+            destinationAnnotationView.image = [UIImage imageNamed:@"FinishPin"];
+            destinationAnnotationView.centerOffset = CGPointMake(25, -40);
+        }
+        return destinationAnnotationView;
+    }
+    return nil;
+}
 @end

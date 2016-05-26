@@ -27,6 +27,7 @@
     
     
      UINavigationController *skateboardsNavController = [[UINavigationController alloc] initWithRootViewController: [[ScheduleViewController alloc] initWithSchedules:skateShedules]];
+   
     skateboardsNavController.topViewController.navigationItem.title = @"Скейт/Лонгборд";
     skateboardsNavController.topViewController.navigationItem.backBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Назад" style:UIBarButtonItemStylePlain target:nil action:nil];
     skateboardsNavController.tabBarItem.title = @"Скейт/Лонгборд";

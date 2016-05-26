@@ -12,7 +12,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    [self.view setBackgroundColor: [UIColor whiteColor]];
+     
     self.navigationItem.title = self.scheduleItem.scheduleItemTitle;
     self.scheduleItemView.mapView.delegate = self;
     [self.scheduleItemView configureData: self.scheduleItem];
@@ -49,10 +49,31 @@
 
 
 
-- (void)mapView:(MKMapView *)mapView didUpdateUserLocation:(MKUserLocation *)userLocation{
-  
-
+- (MKAnnotationView *)mapView:(MKMapView *)mapView viewForAnnotation:(id<MKAnnotation>)annotation{
+    
+    static NSString *startAnnotationIdentifier = @"Start";
+    static NSString *destinationAnnotationIdentifier = @"Finish";
+    
+    if([annotation.title isEqualToString:@"Start"]){
+        MKAnnotationView* startAnnotationView = [self.scheduleItemView.mapView dequeueReusableAnnotationViewWithIdentifier:startAnnotationIdentifier];
+        if(!startAnnotationView){
+            startAnnotationView = [[MKAnnotationView alloc] initWithAnnotation:annotation reuseIdentifier:startAnnotationIdentifier];
+            startAnnotationView.image = [UIImage imageNamed:@"StartPin"];
+            [startAnnotationView setCanShowCallout:YES];
+        }
+        return startAnnotationView;
+    }
+    else if([annotation.title isEqualToString:@"Finish"]){
+        MKAnnotationView* destinationAnnotationView = [self.scheduleItemView.mapView dequeueReusableAnnotationViewWithIdentifier:destinationAnnotationIdentifier];
+        if(!destinationAnnotationView){
+            destinationAnnotationView = [[MKAnnotationView alloc] initWithAnnotation:annotation reuseIdentifier:destinationAnnotationIdentifier];
+            [destinationAnnotationView setContentMode:UIViewContentModeTop];
+            destinationAnnotationView.image = [UIImage imageNamed:@"FinishPin"];
+            [destinationAnnotationView setCanShowCallout:YES];
+        }
+        return destinationAnnotationView;
+    }
+    return nil;
 }
-
 
 @end

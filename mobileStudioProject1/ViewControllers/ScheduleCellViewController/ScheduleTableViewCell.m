@@ -25,9 +25,11 @@
         self.destinationLabel = [[UILabel alloc] init];
         
         [self.titleLabel setFont: [UIFont systemFontOfSize:17] ];
+        [self.titleLabel setTextAlignment:NSTextAlignmentCenter];
         [self.startDateLabel setFont: [UIFont systemFontOfSize:12] ];
         [self.startLocationLabel setFont: [UIFont systemFontOfSize:14] ];
         [self.destinationLabel setFont: [UIFont systemFontOfSize:14] ];
+        
         
         [self.contentView addSubview:self.titleLabel];
         [self.contentView addSubview:self.startDateLabel];
