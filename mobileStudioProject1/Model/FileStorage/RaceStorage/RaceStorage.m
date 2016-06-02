@@ -50,15 +50,15 @@ static NSMutableArray<Race*> *bikeSchedules;
 }
 
 +(void)saveRaces{
-    NSMutableArray<Race*> *racesList = [[NSMutableArray alloc] init];
-    racesList = (NSMutableArray<Race*>*)[racesList arrayByAddingObjectsFromArray: skateboardSchedules];
-    racesList = (NSMutableArray<Race*>*)[racesList arrayByAddingObjectsFromArray: bikeSchedules];
+    NSMutableSet<Race*> *racesList = [[NSMutableSet alloc] init];
+    racesList = (NSMutableSet<Race*>*)[racesList setByAddingObjectsFromArray: skateboardSchedules];
+    racesList = (NSMutableSet<Race*>*)[racesList setByAddingObjectsFromArray: bikeSchedules];
     [FileStorage saveObject:racesList toFile:@"RacesList"];
 }
 
 +(void)loadRaces{
     NSMutableArray<Race*> *racesList = [[NSMutableArray alloc] init];
-    racesList =  (NSMutableArray<Race*>*)[racesList arrayByAddingObjectsFromArray:(NSArray<Race*>*)[FileStorage loadObjectFromFile:@"RacesList"]];
+    racesList =  (NSMutableArray<Race*>*)[racesList arrayByAddingObjectsFromArray:[(NSSet<Race*>*)[FileStorage loadObjectFromFile:@"RacesList"] allObjects]];
     
     self.skateboardSchedules = (NSMutableArray<Race*>*)[[NSMutableArray alloc] init];
     self.bikeSchedules = [(NSMutableArray<Race*>*)[NSMutableArray alloc] init];
@@ -67,7 +67,7 @@ static NSMutableArray<Race*> *bikeSchedules;
         if( [race.transportTypes containsObject:[NSNumber numberWithInteger:TransportTypeSkateboard] ] ){
             [self.skateboardSchedules addObject:race];
         }
-        else if ( [race.transportTypes containsObject:[NSNumber numberWithInteger:TransportTypeBike] ] ){
+        if ( [race.transportTypes containsObject:[NSNumber numberWithInteger:TransportTypeBike] ] ){
             [self.bikeSchedules addObject:race];
         }
     }

@@ -68,17 +68,8 @@
     UITableViewRowAction *delete = [UITableViewRowAction rowActionWithStyle:UITableViewRowActionStyleDestructive title:@"Исключить" handler:^(UITableViewRowAction * __nonnull action, NSIndexPath * __nonnull indexPath) {
         [self.schedules removeObjectAtIndex:indexPath.row];
         
-        NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
-        NSString *documentsDirectoryPath = [paths objectAtIndex:0];
-        NSString *filePath;
-        if([self.navigationItem.title isEqualToString:@"Скейт/Лонгборд"]){
-            filePath = [documentsDirectoryPath stringByAppendingPathComponent:@"SkateboardRacesList"];
-        }
-        else if([self.navigationItem.title isEqualToString:@"Велосипед"]){
-            filePath = [documentsDirectoryPath stringByAppendingPathComponent:@"BikeRacesList"];
-        }
-        [NSKeyedArchiver  archiveRootObject:self.schedules toFile:filePath];
-        
+        [RaceStorage removeRace: [self.schedules objectAtIndex:indexPath.row]];
+        [RaceStorage saveRaces];
         [self.scheduleView.tableView reloadData];
     }];
     
