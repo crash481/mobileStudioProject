@@ -28,8 +28,9 @@
         [self.titleLabel setTextAlignment:NSTextAlignmentCenter];
         [self.startDateLabel setFont: [UIFont systemFontOfSize:12] ];
         [self.startLocationLabel setFont: [UIFont systemFontOfSize:14] ];
+        [self.startLocationLabel setTextAlignment:NSTextAlignmentLeft];
         [self.destinationLabel setFont: [UIFont systemFontOfSize:14] ];
-        
+        [self.destinationLabel setTextAlignment:NSTextAlignmentRight];
         
         [self.contentView addSubview:self.titleLabel];
         [self.contentView addSubview:self.startDateLabel];
@@ -57,20 +58,20 @@
     [self.startDateLabel anchorTopLeftWithLeftPadding:10 topPadding:4 width:self.frame.size.width*0.9 height:self.startDateLabel.height];
     
     [self.startLocationLabel sizeToFit];
-    [self.startLocationLabel anchorTopLeftWithLeftPadding:25 topPadding:41 width:self.frame.size.width*0.40 height:self.startLocationLabel.height];
+    [self.startLocationLabel anchorTopLeftWithLeftPadding:15 topPadding:41 width:self.frame.size.width*0.40 height:self.startLocationLabel.height];
     
     [self.destinationLabel sizeToFit];
-    [self.destinationLabel anchorTopRightWithRightPadding:25 topPadding:41 width:self.frame.size.width*0.40 height:self.destinationLabel.height];
+    [self.destinationLabel anchorTopRightWithRightPadding:15 topPadding:41 width:self.frame.size.width*0.40 height:self.destinationLabel.height];
     
     
 }
 
-- (void)configureData: (Race*)scheduleItem {
+- (void)configureData: (Race*)race {
     
-    self.titleLabel.text = scheduleItem.scheduleItemTitle;
-    self.startDateLabel.text = [scheduleItem.startDate formattedDateWithFormat:@"dd MMMM YYYY в HH:mm" locale:[[NSLocale alloc]initWithLocaleIdentifier:@"ru_RU"]];
-    self.startLocationLabel.text = scheduleItem.startLocation;
-    self.destinationLabel.text = scheduleItem.destination;
+    self.titleLabel.text = race.raceTitle;
+    self.startDateLabel.text = [race.startDate formattedDateWithFormat:@"dd MMMM YYYY в HH:mm" locale:[[NSLocale alloc]initWithLocaleIdentifier:@"ru_RU"]];
+    self.startLocationLabel.text = race.startLocation;
+    self.destinationLabel.text = race.destination;
     
 }
 

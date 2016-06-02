@@ -1,10 +1,12 @@
 #import "RaceViewController.h"
 #import "EventMembersViewController.h"
 
+
 @interface RaceViewController ()
 
-@property (readwrite) Race* scheduleItem;
-@property RaceView *scheduleItemView;
+@property (readwrite) Race* race;
+@property RaceView *raceView;
+@property NSMutableArray<NSString*> *transportTypesName;
 
 @end
 
@@ -13,25 +15,26 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
      
-    self.navigationItem.title = self.scheduleItem.scheduleItemTitle;
-    self.scheduleItemView.mapView.delegate = self;
-    [self.scheduleItemView configureData: self.scheduleItem];
-    [self.scheduleItemView.membersButton addTarget:self action:@selector(membersButtonClicked:) forControlEvents:UIControlEventTouchUpInside];
-    
+    self.navigationItem.title = self.race.raceTitle;
+    self.raceView.mapView.delegate = self;
+    [self.raceView configureData: self.race];
+    [self.raceView.membersButton addTarget:self action:@selector(membersButtonClicked:) forControlEvents:UIControlEventTouchUpInside];
+    self.raceView.transportTypeTableView.delegate = self;
+    self.raceView.transportTypeTableView.dataSource = self;
+    self.transportTypesName = (NSMutableArray<NSString*>*)@[@"Скейтборд/лонгборд", @"Велосипед" ];
 }
 
 -(void)loadView{
-    self.scheduleItemView = [[RaceView alloc] init];
-    self.view = self.scheduleItemView;
-    
+    self.raceView = [[RaceView alloc] init];
+    self.view = self.raceView;
 }
 
 
 
--(instancetype) initWithRace: (Race*) scheduleItem{
+-(instancetype) initWithRace: (Race*) race{
     
     if(self = [super init]){
-        self.scheduleItem = scheduleItem;
+        self.race = race;
     }
     return self;
 }
@@ -41,12 +44,33 @@
 -(void)membersButtonClicked:(id)sender{
     
     EventMembersViewController *eventMembersViewController = [[EventMembersViewController alloc] init];
-    
     UINavigationController *navBar = [[UINavigationController alloc] initWithRootViewController:eventMembersViewController];
     [self presentViewController:navBar animated:YES completion:nil];
     
 }
 
+-(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
+    
+    static NSString *reuseIndentifier = @"transportTypeCell";
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:reuseIndentifier];
+    
+    if( cell == nil ){
+        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:reuseIndentifier];
+    }
+    
+    cell.textLabel.text = self.transportTypesName[[self.race.transportTypes[indexPath.row] integerValue]];
+    cell.textLabel.font = [UIFont systemFontOfSize:13];
+    [cell setSelectionStyle:UITableViewCellSelectionStyleNone];
+    return cell;
+}
+
+-(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
+    return self.race.transportTypes.count;
+}
+
+-(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
+    return 25;
+}
 
 
 - (MKAnnotationView *)mapView:(MKMapView *)mapView viewForAnnotation:(id<MKAnnotation>)annotation{
@@ -55,7 +79,7 @@
     static NSString *destinationAnnotationIdentifier = @"Finish";
     
     if([annotation.title isEqualToString:@"Start"]){
-        MKAnnotationView* startAnnotationView = [self.scheduleItemView.mapView dequeueReusableAnnotationViewWithIdentifier:startAnnotationIdentifier];
+        MKAnnotationView* startAnnotationView = [self.raceView.mapView dequeueReusableAnnotationViewWithIdentifier:startAnnotationIdentifier];
         if(!startAnnotationView){
             startAnnotationView = [[MKAnnotationView alloc] initWithAnnotation:annotation reuseIdentifier:startAnnotationIdentifier];
             startAnnotationView.image = [UIImage imageNamed:@"StartPin"];
@@ -64,7 +88,7 @@
         return startAnnotationView;
     }
     else if([annotation.title isEqualToString:@"Finish"]){
-        MKAnnotationView* destinationAnnotationView = [self.scheduleItemView.mapView dequeueReusableAnnotationViewWithIdentifier:destinationAnnotationIdentifier];
+        MKAnnotationView* destinationAnnotationView = [self.raceView.mapView dequeueReusableAnnotationViewWithIdentifier:destinationAnnotationIdentifier];
         if(!destinationAnnotationView){
             destinationAnnotationView = [[MKAnnotationView alloc] initWithAnnotation:annotation reuseIdentifier:destinationAnnotationIdentifier];
             [destinationAnnotationView setContentMode:UIViewContentModeTop];

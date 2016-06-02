@@ -1,13 +1,16 @@
 PODS:
   - DateTools (1.7.0)
   - Facade (1.1.1)
+  - IQKeyboardManager (4.0.3)
 
 DEPENDENCIES:
   - DateTools
   - Facade
+  - IQKeyboardManager
 
 SPEC CHECKSUMS:
   DateTools: 53288ee8b905fdc75897a1e6b5cc0144b14cba60
   Facade: 3c5c6fb1ba042d20885cfe5a290050f5b9351ca2
+  IQKeyboardManager: be9695ffc5a52077deb4847608f338771022d6d1
 
 COCOAPODS: 0.39.0

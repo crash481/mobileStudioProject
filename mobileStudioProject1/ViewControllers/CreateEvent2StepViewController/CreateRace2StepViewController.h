@@ -4,7 +4,7 @@
 
 @protocol CreateRace2StepDelegate <NSObject>
 
-- (void)didCreateSheduleItem: (Race*)scheduleItem;
+- (void)didCreateSheduleItem: (Race*)race;
 
 @end
 
@@ -12,7 +12,7 @@
 
 @property (weak) id<CreateRace2StepDelegate> delegate;
 
-- (instancetype)initWithEventTitle: (NSString*)eventTitle andEventDate: (NSDate*)eventDate;
+- (instancetype)initWithEventTitle: (NSString*)eventTitle transportTypes: (NSArray<NSNumber*>*)transportTypes andEventDate: (NSDate*)eventDate;
 
 @end
 

@@ -1,12 +1,17 @@
 #import "CreateRaceView.h"
 #import "UIView+Facade.h"
+#import "Race.h"
 @interface CreateRaceView()
 
 @property UITextField *titleTextField;
 @property UILabel *dateLabel;
 @property UIDatePicker *datePicker;
+@property UILabel *transportTypeLabel;
+@property UITableView *transportTypeTableView;
 @property UIButton *nextButton;
 @property UILabel* errorLabel;
+
+
 
 @end
 
@@ -24,12 +29,16 @@
         self.datePicker = [[UIDatePicker alloc] init];
         self.nextButton = [UIButton buttonWithType:UIButtonTypeSystem];
         self.errorLabel = [[UILabel alloc] init];
-        
+        self.transportTypeLabel = [[UILabel alloc] init];
+        self.transportTypeTableView = [[UITableView alloc] init];
+       
         [self.titleTextField setBorderStyle:UITextBorderStyleRoundedRect];
         [self.titleTextField setPlaceholder:@"Название заезда"];
         [self.titleTextField setDelegate:self];
-        [self.dateLabel setText:@"Выберите дату и время начала заезда:"];
+        [self.dateLabel setText:@"Дата и время начала заезда:"];
         [self.dateLabel setFont:[UIFont systemFontOfSize:16]];
+        [self.transportTypeLabel setText:@"Транспорт для участия:"];
+        [self.transportTypeLabel setFont:[UIFont systemFontOfSize:15]];
         [self.datePicker setDatePickerMode:UIDatePickerModeDateAndTime ];
         [self.datePicker setMinimumDate:[NSDate dateWithTimeIntervalSinceNow:0]];
         [self.nextButton setTitle:@"Далее" forState:UIControlStateNormal];
@@ -42,6 +51,8 @@
         
         [self addSubview:self.titleTextField];
         [self addSubview:self.dateLabel];
+        [self addSubview:self.transportTypeLabel];
+        [self addSubview:self.transportTypeTableView];
         [self addSubview:self.datePicker];
         [self addSubview:self.nextButton];
         [self addSubview:self.errorLabel];
@@ -53,18 +64,23 @@
     
     if( [[UIDevice currentDevice] orientation] != UIDeviceOrientationLandscapeLeft &&  [[UIDevice currentDevice] orientation] != UIDeviceOrientationLandscapeRight){
     
-        [self.titleTextField anchorTopCenterWithTopPadding:20 width:self.frame.size.width*0.8 height:40];
-        [self.errorLabel alignUnder:self.titleTextField matchingLeftWithTopPadding:5 width:300 height:12];
-        [self.dateLabel alignUnder:self.titleTextField withLeftPadding:10 topPadding:35 width:320 height:14];
+        [self.titleTextField anchorTopCenterWithTopPadding:10 width:self.frame.size.width*0.8 height:30];
+        [self.errorLabel alignUnder:self.titleTextField matchingLeftWithTopPadding:2 width:300 height:12];
+        [self.transportTypeLabel alignUnder:self.titleTextField matchingCenterWithTopPadding:25 width:self.width*0.8 height:15];
+        [self.transportTypeTableView alignUnder:self.transportTypeLabel matchingCenterWithTopPadding:8 width:self.width*0.8 height:self.height*0.23];
+        [self.dateLabel alignUnder:self.transportTypeTableView withLeftPadding:12 topPadding:10 width:340 height:13];
         [self.datePicker alignBetweenTop:self.dateLabel andBottom:self.nextButton centeredWithLeftAndRightPadding:0 topAndBottomPadding:0];
-        [self.nextButton anchorBottomCenterWithBottomPadding:20 width:200 height:35];
+        [self.nextButton anchorBottomCenterWithBottomPadding:10 width:200 height:35];
+
     }
     else {
-    [self.titleTextField anchorTopCenterWithTopPadding:15 width:self.frame.size.width*0.8 height:30];
-    [self.errorLabel alignUnder:self.titleTextField matchingLeftWithTopPadding:5 width:300 height:12];
-    [self.dateLabel alignUnder:self.titleTextField withLeftPadding:10 topPadding:25 width:340 height:13];
+    [self.titleTextField anchorTopCenterWithTopPadding:7 width:self.frame.size.width*0.8 height:30];
+    [self.errorLabel alignUnder:self.titleTextField matchingLeftWithTopPadding:2 width:300 height:12];
+    [self.transportTypeLabel alignUnder:self.titleTextField matchingCenterWithTopPadding:18 width:self.width*0.7 height:15];
+    [self.transportTypeTableView alignUnder:self.transportTypeLabel matchingCenterWithTopPadding:5 width:self.width*0.7 height:self.height*0.23];
+    [self.dateLabel alignUnder:self.transportTypeTableView withLeftPadding:10 topPadding:5 width:340 height:13];
     [self.datePicker alignBetweenTop:self.dateLabel andBottom:self.nextButton centeredWithLeftAndRightPadding:0 topAndBottomPadding:0];
-    [self.nextButton anchorBottomCenterWithBottomPadding:10 width:200 height:35];
+    [self.nextButton anchorBottomCenterWithBottomPadding:5 width:200 height:30];
     }
 }
 

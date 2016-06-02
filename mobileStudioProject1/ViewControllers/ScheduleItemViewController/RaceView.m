@@ -9,6 +9,8 @@
 @property UILabel *destinationLabel;
 @property(readwrite) UIButton *joinButton;
 @property(readwrite) UIButton *membersButton;
+@property UILabel *transportTypeLabel;
+@property UITableView *transportTypeTableView;
 
 @property UILabel *startDateText;
 @property UILabel *startLocationText;
@@ -34,8 +36,11 @@
         self.destinationText = [[UILabel alloc] init];
         self.joinButton = [UIButton buttonWithType:UIButtonTypeSystem];
         self.membersButton = [UIButton buttonWithType:UIButtonTypeSystem];
+        self.transportTypeLabel = [[UILabel alloc] init];
+        self.transportTypeTableView = [[UITableView alloc] init];
         
-        
+        [self.transportTypeLabel setText:@"Транспорт для участия:"];
+        [self.transportTypeLabel setFont:[UIFont systemFontOfSize:15]];
         [self.startLocationText setText:@"Выезд из: "];
         [self.destinationText setText:@"Едем в: "];
         [self.startDateText setText:@"Начало заезда: "];
@@ -56,7 +61,9 @@
         [self addSubview: self.destinationLabel];
         [self addSubview: self.joinButton];
         [self addSubview: self.membersButton];
-        
+        [self addSubview:self.transportTypeLabel];
+        [self addSubview:self.transportTypeTableView];
+
         
     }
     return self;
@@ -65,35 +72,37 @@
 - (void)layoutSubviews{
     [super layoutSubviews];
     
-    [self.startLocationText anchorTopLeftWithLeftPadding:10 topPadding:15 width:130 height:20];
-    [self.destinationText alignUnder:self.startLocationText withLeftPadding:10 topPadding:5 width:130 height:20];
-    [self.startDateText alignUnder:self.destinationText withLeftPadding:10 topPadding:5 width:130 height:20];
+    [self.startLocationText anchorTopLeftWithLeftPadding:10 topPadding:8 width:130 height:20];
+    [self.destinationText alignUnder:self.startLocationText withLeftPadding:10 topPadding:3 width:130 height:20];
+    [self.startDateText alignUnder:self.destinationText withLeftPadding:10 topPadding:3 width:130 height:20];
     
-    [self.startLocationLabel anchorTopLeftWithLeftPadding:145 topPadding:15 width:200 height:20];
-    [self.destinationLabel alignUnder:self.startLocationLabel withLeftPadding:145 topPadding:5 width:200 height:20];
-    [self.startDateLabel alignUnder:self.destinationLabel withLeftPadding:145 topPadding:5 width:200 height:20];
+    [self.startLocationLabel anchorTopLeftWithLeftPadding:145 topPadding:8 width:200 height:20];
+    [self.destinationLabel alignUnder:self.startLocationLabel withLeftPadding:145 topPadding:3 width:200 height:20];
+    [self.startDateLabel alignUnder:self.destinationLabel withLeftPadding:145 topPadding:3 width:200 height:20];
     
+    [self.transportTypeLabel anchorTopCenterWithTopPadding:80 width:self.width*0.6 height:16];
+    [self.transportTypeTableView alignUnder:self.transportTypeLabel matchingCenterWithTopPadding:3 width:self.width*0.6 height:self.height*0.2];
     
-    [self.joinButton alignUnder:self.startDateLabel withLeftPadding:20 topPadding:self.frame.size.height*0.07 width:self.frame.size.width*0.42 height:35];
-    [self.membersButton alignUnder:self.startDateLabel withRightPadding:20 topPadding:self.frame.size.height*0.07 width:self.frame.size.width*0.42 height:35];
+    [self.joinButton alignUnder:self.transportTypeTableView withLeftPadding:10 topPadding:3 width:self.frame.size.width*0.42 height:35];
+    [self.membersButton alignUnder:self.transportTypeTableView withRightPadding:10 topPadding:3 width:self.frame.size.width*0.42 height:35];
     
     [self.mapView alignUnder:self.joinButton centeredFillingWidthAndHeightWithLeftAndRightPadding:0 topAndBottomPadding:0];
 
 }
--(void) configureData: (Race*)scheduleItem{
+-(void) configureData: (Race*)race{
     
-    self.startLocationLabel.text = scheduleItem.startLocation;
-    self.destinationLabel.text = scheduleItem.destination;
-    self.startDateLabel.text = [scheduleItem.startDate formattedDateWithFormat:@"dd MMMM YYYY в HH:mm" locale:[[NSLocale alloc]initWithLocaleIdentifier:@"ru_RU"]];
+    self.startLocationLabel.text = race.startLocation;
+    self.destinationLabel.text = race.destination;
+    self.startDateLabel.text = [race.startDate formattedDateWithFormat:@"dd MMMM YYYY в HH:mm" locale:[[NSLocale alloc]initWithLocaleIdentifier:@"ru_RU"]];
     
     MKPointAnnotation *startPin = [[MKPointAnnotation alloc] init];
-    startPin.coordinate = scheduleItem.startCoordinate;
-    startPin.subtitle = scheduleItem.startLocation;
+    startPin.coordinate = race.startCoordinate;
+    startPin.subtitle = race.startLocation;
     startPin.title = @"Start";
     
     MKPointAnnotation *destinationPin = [[MKPointAnnotation alloc] init];
-    destinationPin.coordinate = scheduleItem.destinationCoordinate;
-    destinationPin.subtitle = scheduleItem.destination;
+    destinationPin.coordinate = race.destinationCoordinate;
+    destinationPin.subtitle = race.destination;
     destinationPin.title = @"Finish";
     
     [self.mapView addAnnotation:startPin];

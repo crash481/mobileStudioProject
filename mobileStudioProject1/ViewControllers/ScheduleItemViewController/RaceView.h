@@ -7,6 +7,8 @@
 @property MKMapView *mapView;
 @property(readonly) UIButton *joinButton;
 @property(readonly) UIButton *membersButton;
--(void) configureData: (Race*)scheduleItem ;
+@property (readonly)UITableView *transportTypeTableView;
+
+-(void) configureData: (Race*)race ;
 
 @end

@@ -7,6 +7,7 @@ target 'mobileStudioProject1' do
 
 pod ‘Facade’
 pod 'DateTools'
+pod 'IQKeyboardManager'
 
 end
 

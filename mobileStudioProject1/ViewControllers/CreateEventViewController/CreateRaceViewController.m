@@ -4,10 +4,12 @@
 
 @interface CreateRaceViewController ()
 
-@property CreateRaceView *createEventView;
+@property CreateRaceView *createRaceView;
 
 @property NSString *eventTitle;
 @property NSDate *eventDate;
+@property NSMutableArray<NSNumber*> *selectedTransportTypes;
+@property NSMutableArray<NSString*> *transportTypes;
 
 @end
 
@@ -16,32 +18,80 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self.navigationItem setTitle:@"Создание мероприятия"];
-    [self.createEventView.nextButton addTarget:self action:@selector(nextButtonClicked:) forControlEvents:UIControlEventTouchUpInside];
+    [self.createRaceView.nextButton addTarget:self action:@selector(nextButtonClicked:) forControlEvents:UIControlEventTouchUpInside];
+     self.transportTypes = (NSMutableArray<NSString*>*)@[@"Скейтборд/лонгборд", @"Велосипед" ];
+    
+    self.selectedTransportTypes = [[NSMutableArray alloc] init];
+    self.createRaceView.transportTypeTableView.delegate = self;
+    self.createRaceView.transportTypeTableView.dataSource = self;
+    self.createRaceView.transportTypeTableView.allowsMultipleSelection = YES;
     
 }
 
 - (void)loadView{
     
-    self.createEventView = [[CreateRaceView alloc] init];
-    self.view = self.createEventView;
+    self.createRaceView = [[CreateRaceView alloc] init];
+    self.view = self.createRaceView;
+}
+
+-(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
+    
+    static NSString *reuseIndentifier = @"transportTypeCell";
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:reuseIndentifier];
+    
+    if( cell == nil ){
+        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:reuseIndentifier];
+    }
+    
+    cell.textLabel.text = self.transportTypes[indexPath.row];
+    cell.textLabel.font = [UIFont systemFontOfSize:13];
+    [cell setSelectionStyle:UITableViewCellSelectionStyleNone];
+    return cell;
+}
+
+-(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
+    return self.transportTypes.count;
+}
+
+-(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
+    return 25;
+}
+
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    [[tableView cellForRowAtIndexPath:indexPath] setAccessoryType:UITableViewCellAccessoryCheckmark];
+    
+}
+
+-(void)tableView:(UITableView *)tableView didDeselectRowAtIndexPath:(NSIndexPath *)indexPath{
+     [[tableView cellForRowAtIndexPath:indexPath] setAccessoryType:UITableViewCellAccessoryNone];
 }
 
 - (void)nextButtonClicked: (id)sender{
     
-    if([self.createEventView.titleTextField  hasText]){
-        self.eventTitle = self.createEventView.titleTextField.text;
-        self.eventDate = self.createEventView.datePicker.date;
+    if(![self.createRaceView.titleTextField  hasText]){
+        self.createRaceView.errorLabel.text = @"Введите название заезда";
+        [self.createRaceView.errorLabel setHidden:NO];
+        [self.createRaceView.titleTextField.layer setBorderColor:[[UIColor redColor] CGColor] ];
+        [self.createRaceView.titleTextField.layer setBorderWidth: 1];
+        [self.createRaceView.titleTextField.layer setCornerRadius: 6];
+        [self triggerShakeAnimationToView: self.createRaceView.titleTextField];
+    }
+    else if ([self.createRaceView.transportTypeTableView indexPathsForSelectedRows].count == 0){
+        self.createRaceView.errorLabel.text = @"Выберите транспорт для участия";
+        [self.createRaceView.errorLabel setHidden:NO];
         
-        CreateRace2StepViewController *createEventStep2ViewController = [[CreateRace2StepViewController alloc] initWithEventTitle:self.eventTitle andEventDate:self.eventDate];
-        createEventStep2ViewController.delegate = self.delegate;
-        [self.navigationController pushViewController:createEventStep2ViewController animated:YES];
     }
     else{
-        [self.createEventView.errorLabel setHidden:NO];
-        [self.createEventView.titleTextField.layer setBorderColor:[[UIColor redColor] CGColor] ];
-        [self.createEventView.titleTextField.layer setBorderWidth: 1];
-        [self.createEventView.titleTextField.layer setCornerRadius: 6];
-        [self triggerShakeAnimationToView: self.createEventView.titleTextField];
+        self.eventTitle = self.createRaceView.titleTextField.text;
+        self.eventDate = self.createRaceView.datePicker.date;
+        for (NSIndexPath *indexPath in [self.createRaceView.transportTypeTableView indexPathsForSelectedRows]) {
+            [self.selectedTransportTypes addObject: [NSNumber numberWithInteger:indexPath.row]];
+        }
+        
+        [self.createRaceView.errorLabel setHidden:YES];
+        CreateRace2StepViewController *createRaceStep2ViewController = [[CreateRace2StepViewController alloc] initWithEventTitle:self.eventTitle transportTypes:self.selectedTransportTypes andEventDate:self.eventDate];
+        createRaceStep2ViewController.delegate = self.delegate;
+        [self.navigationController pushViewController:createRaceStep2ViewController animated:YES];
     }
 }
 

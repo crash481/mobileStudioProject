@@ -1,11 +1,11 @@
 #import <UIKit/UIKit.h>
 #import "RaceView.h"
 
-@interface RaceViewController : UIViewController <MKMapViewDelegate>
+@interface RaceViewController : UIViewController <MKMapViewDelegate,UITableViewDelegate,UITableViewDataSource>
 
-@property (readonly) Race* scheduleItem;
+@property (readonly) Race* race;
 
 
--(instancetype) initWithRace: (Race*) scheduleItem;
+-(instancetype) initWithRace: (Race*) race;
 
 @end

@@ -3,6 +3,7 @@
 #import "DateTools.h"
 #import "ScheduleTableViewCell.h"
 #import "CreateRaceViewController.h"
+#import "RaceStorage.h"
 
 @interface ScheduleViewController()
 
@@ -17,15 +18,17 @@
     [super viewDidLoad];
     
      self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(addEventClicked:)];
-    
     [self.scheduleView.tableView reloadData];
-    
 }
 
--(instancetype)initWithSchedules: (NSArray*)schedules{
+-(void)viewWillAppear:(BOOL)animated{
+    [self.scheduleView.tableView reloadData];
+}
+
+-(instancetype)initWithSchedules: (NSMutableArray<Race*>*)schedules{
     
     if(self = [super init]){
-       self.schedules = [schedules mutableCopy];
+       self.schedules = schedules;
     }
     return self;
 }
@@ -39,11 +42,9 @@
     
     static NSString *reuseIndentifier = @"scheduleCell";
     ScheduleTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:reuseIndentifier];
-    
     if( cell == nil ){
         cell = [[ScheduleTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:reuseIndentifier];
     }
-    
     [cell configureData: self.schedules[indexPath.row] ];
     
     return cell;
@@ -56,12 +57,33 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     
-    Race *scheduleItem = self.schedules[indexPath.row];
+    Race *race = self.schedules[indexPath.row];
     
-    RaceViewController *scheduleItemViewController = [[RaceViewController alloc] initWithRace:scheduleItem];
-    [self.navigationController pushViewController:scheduleItemViewController animated:YES];
+    RaceViewController *raceViewController = [[RaceViewController alloc] initWithRace:race];
+    [self.navigationController pushViewController:raceViewController animated:YES];
+}
+
+- (NSArray<UITableViewRowAction *> *)tableView:(UITableView *)tableView editActionsForRowAtIndexPath:(NSIndexPath *)indexPath{
+    
+    UITableViewRowAction *delete = [UITableViewRowAction rowActionWithStyle:UITableViewRowActionStyleDestructive title:@"Исключить" handler:^(UITableViewRowAction * __nonnull action, NSIndexPath * __nonnull indexPath) {
+        [self.schedules removeObjectAtIndex:indexPath.row];
+        
+        NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+        NSString *documentsDirectoryPath = [paths objectAtIndex:0];
+        NSString *filePath;
+        if([self.navigationItem.title isEqualToString:@"Скейт/Лонгборд"]){
+            filePath = [documentsDirectoryPath stringByAppendingPathComponent:@"SkateboardRacesList"];
+        }
+        else if([self.navigationItem.title isEqualToString:@"Велосипед"]){
+            filePath = [documentsDirectoryPath stringByAppendingPathComponent:@"BikeRacesList"];
+        }
+        [NSKeyedArchiver  archiveRootObject:self.schedules toFile:filePath];
+        
+        [self.scheduleView.tableView reloadData];
+    }];
     
     
+    return @[delete];
 }
 
 -(void)loadView{
@@ -72,14 +94,16 @@
 }
 
 -(void)addEventClicked: (id)sender{
-    CreateRaceViewController *createEventViewController = [[CreateRaceViewController alloc] init];
-    createEventViewController.delegate = self;
-    [self.navigationController pushViewController:createEventViewController animated:YES];
+    CreateRaceViewController *createRaceViewController = [[CreateRaceViewController alloc] init];
+    createRaceViewController.delegate = self;
+    [self.navigationController pushViewController:createRaceViewController animated:YES];
 }
 
--(void)didCreateSheduleItem:(Race *)scheduleItem{
-    [self.schedules addObject:scheduleItem];
+-(void)didCreateSheduleItem:(Race *)race{
+    
+    [RaceStorage addRace:race];
     [self.scheduleView.tableView reloadData];
+    [RaceStorage saveRaces:self.schedules];
 }
 
 

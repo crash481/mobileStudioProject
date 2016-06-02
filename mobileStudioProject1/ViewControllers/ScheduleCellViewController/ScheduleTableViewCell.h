@@ -3,6 +3,6 @@
 
 @interface ScheduleTableViewCell : UITableViewCell
 
-- (void)configureData: (Race*)scheduleItem;
+- (void)configureData: (Race*)race;
 
 @end

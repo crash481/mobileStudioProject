@@ -1,15 +1,21 @@
 #import <Foundation/Foundation.h>
 #import <MapKit/MapKit.h>
 
-@interface Race : NSObject
+@interface Race : NSObject<NSCoding>
 
-@property NSString *scheduleItemTitle;
+typedef NS_ENUM(NSInteger, TransportType) {
+    TransportTypeSkateboard,
+    TransportTypeBike
+};
+
+@property NSString *raceTitle;
 @property NSDate *startDate;
 @property NSString *startLocation;
 @property NSString *destination;
 @property CLLocationCoordinate2D startCoordinate;
 @property CLLocationCoordinate2D destinationCoordinate;
+@property NSArray<NSNumber*> *transportTypes;
 
 
--(instancetype) initWithTitle: (NSString*)title StartDate: (NSDate*) startDate Location: (NSString*)location Destination: (NSString*) destination StartCoordinate: (CLLocationCoordinate2D)startCoordinate AndDestinationCoordinate: (CLLocationCoordinate2D) destinationCoordinate;
+-(instancetype) initWithTitle: (NSString*)title transportType: (NSArray<NSNumber*>*)transportTypes startDate: (NSDate*) startDate location: (NSString*)location destination: (NSString*) destination startCoordinate: (CLLocationCoordinate2D)startCoordinate andDestinationCoordinate: (CLLocationCoordinate2D) destinationCoordinate;
 @end

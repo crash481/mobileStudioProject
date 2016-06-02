@@ -1,6 +1,8 @@
 #import "SchedulesTabBarViewController.h"
 #import "ScheduleViewController.h"
+#import "AccountViewController.h"
 #import "NSDate+DateTools.h"
+#import "RaceStorage.h"
 
 @interface SchedulesTabBarViewController ()
 
@@ -12,37 +14,33 @@
     [super viewDidLoad];
     
     self.tabBar.translucent = NO;
+    [RaceStorage loadRaces];
     
-    NSMutableArray<Race*> *skateShedules = [[NSMutableArray alloc] init];
-    NSDate *startDate = [NSDate dateWithYear:2016 month:5 day:14 hour:17 minute:00 second:00];
-    [skateShedules addObject: [[Race alloc] initWithTitle:@"Гонка до Адмиралтейской" StartDate:startDate  Location:@"Петроградская" Destination:@"Адмиралтейская" StartCoordinate:CLLocationCoordinate2DMake(59.93, 30.338) AndDestinationCoordinate:CLLocationCoordinate2DMake(59.943, 30.36) ]];
-    [skateShedules addObject: [[Race alloc] initWithTitle:@"Гоняем по отдыху" StartDate:startDate  Location:@"Петроградская" Destination:@"Озерки" StartCoordinate:CLLocationCoordinate2DMake(59.93, 30.338) AndDestinationCoordinate:CLLocationCoordinate2DMake(59.943, 30.36) ]];
-    [skateShedules addObject: [[Race alloc] initWithTitle:@"Учимся слайдить итд." StartDate:startDate  Location:@"Черная речка" Destination:@"Черная речка" StartCoordinate:CLLocationCoordinate2DMake(59.93, 30.338) AndDestinationCoordinate:CLLocationCoordinate2DMake(59.943, 30.36) ]];
+    ScheduleViewController *skateboardsViewController = [[ScheduleViewController alloc] initWithSchedules:[RaceStorage skateboardSchedules]];
+    skateboardsViewController.view.tag = 0;
+    UINavigationController *skateboardsNavController = [[UINavigationController alloc] initWithRootViewController: skateboardsViewController];
     
-    
-    NSMutableArray<Race*> *bikeShedules = [[NSMutableArray alloc] init];
-    [bikeShedules addObject: [[Race alloc] initWithTitle:@"Обзорный заезд по центру" StartDate:startDate  Location:@"Центральный район" Destination:@"Центральный район" StartCoordinate:CLLocationCoordinate2DMake(59.93, 30.338) AndDestinationCoordinate:CLLocationCoordinate2DMake(59.943, 30.36) ]];
-    [bikeShedules addObject: [[Race alloc] initWithTitle:@"Научим трюкам" StartDate:startDate  Location:@"Адмиралтейская" Destination:@"Адмиралтейская" StartCoordinate:CLLocationCoordinate2DMake(59.99, 30.311) AndDestinationCoordinate:CLLocationCoordinate2DMake(59.933, 30.39) ]];
-    
-    
-    
-     UINavigationController *skateboardsNavController = [[UINavigationController alloc] initWithRootViewController: [[ScheduleViewController alloc] initWithSchedules:skateShedules]];
-   
     skateboardsNavController.topViewController.navigationItem.title = @"Скейт/Лонгборд";
     skateboardsNavController.topViewController.navigationItem.backBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Назад" style:UIBarButtonItemStylePlain target:nil action:nil];
     skateboardsNavController.tabBarItem.title = @"Скейт/Лонгборд";
     skateboardsNavController.tabBarItem.image = [UIImage imageNamed:@"Skateboard"];
     skateboardsNavController.navigationBar.translucent = NO;
     
-    
-    UINavigationController *bikesNavController = [[UINavigationController alloc] initWithRootViewController: [[ScheduleViewController alloc] initWithSchedules:bikeShedules] ];
+    ScheduleViewController *bikesViewController = [[ScheduleViewController alloc] initWithSchedules:[RaceStorage bikeSchedules]];
+    bikesViewController.view.tag = 1;
+    UINavigationController *bikesNavController = [[UINavigationController alloc] initWithRootViewController: bikesViewController];
     bikesNavController.topViewController.navigationItem.title = @"Велосипед";
     bikesNavController.topViewController.navigationItem.backBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Назад" style:UIBarButtonItemStylePlain target:nil action:nil];
     bikesNavController.tabBarItem.title = @"Велосипед";
     bikesNavController.tabBarItem.image = [UIImage imageNamed:@"Bike"];
     bikesNavController.navigationBar.translucent = NO;
     
-    [self setViewControllers:@[skateboardsNavController, bikesNavController]];
+    UINavigationController *accountNavController = [[UINavigationController alloc] initWithRootViewController:[[AccountViewController alloc] init]];
+    accountNavController.tabBarItem.image = [UIImage imageNamed:@"AccountIcon"];
+    accountNavController.tabBarItem.title = @"Аккаунт";
+    accountNavController.navigationBar.translucent = NO;
+    
+    [self setViewControllers:@[skateboardsNavController, bikesNavController, accountNavController]];
     
 }
 
