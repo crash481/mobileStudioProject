@@ -122,11 +122,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "mobileStudioProject1/ViewControllers/ScheduleViewContoller/ScheduleViewController.m"
-            timestampString = "486564809.468581"
+            timestampString = "486567265.392988"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "27"
-            endingLineNumber = "27"
+            startingLineNumber = "25"
+            endingLineNumber = "25"
             landmarkName = "-viewWillAppear:"
             landmarkType = "5">
          </BreakpointContent>

@@ -57,6 +57,14 @@ static NSMutableArray<Race*> *bikeSchedules;
     
     self.skateboardSchedules = (NSMutableArray<Race*>*)[FileStorage loadObjectFromFile:@"SkateboardRacesList"];
     self.bikeSchedules = (NSMutableArray<Race*>*)[FileStorage loadObjectFromFile:@"BikeRacesList"];
+    
+    if(self.skateboardSchedules == nil){
+        self.skateboardSchedules = [[NSMutableArray alloc] init];
+    }
+    
+    if(self.bikeSchedules == nil){
+        self.bikeSchedules = [[NSMutableArray alloc] init];
+    }
 }
 
 @end
