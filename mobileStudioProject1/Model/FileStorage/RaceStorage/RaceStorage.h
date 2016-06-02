@@ -9,6 +9,7 @@
 +(void)setBikeSchedules: (NSMutableArray<Race*> *)bikeSchedules;
 
 +(void)addRace:(Race*)race;
++(void)removeRace:(Race*)race;
 +(void)loadRaces;
-+(void)saveRaces:(NSMutableArray<Race*>*)races;
++(void)saveRaces;
 @end

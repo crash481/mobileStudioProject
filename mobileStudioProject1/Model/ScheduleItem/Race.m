@@ -3,7 +3,7 @@
 @implementation Race
 
 
--(instancetype) initWithTitle: (NSString*)title transportType: (NSArray<NSNumber*>*)transportTypes startDate: (NSDate*) startDate location: (NSString*)location destination: (NSString*) destination startCoordinate: (CLLocationCoordinate2D)startCoordinate andDestinationCoordinate: (CLLocationCoordinate2D) destinationCoordinate{
+-(instancetype) initWithTitle: (NSString*)title transportType: (NSSet<NSNumber*>*)transportTypes startDate: (NSDate*) startDate location: (NSString*)location destination: (NSString*) destination startCoordinate: (CLLocationCoordinate2D)startCoordinate andDestinationCoordinate: (CLLocationCoordinate2D) destinationCoordinate{
     
     if(self = [super init]){
         self.raceTitle = title;

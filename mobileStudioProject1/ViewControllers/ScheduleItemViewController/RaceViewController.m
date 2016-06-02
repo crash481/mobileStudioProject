@@ -58,7 +58,7 @@
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:reuseIndentifier];
     }
     
-    cell.textLabel.text = self.transportTypesName[[self.race.transportTypes[indexPath.row] integerValue]];
+    cell.textLabel.text = self.transportTypesName[ [[self.race.transportTypes allObjects][indexPath.row] integerValue]];
     cell.textLabel.font = [UIFont systemFontOfSize:13];
     [cell setSelectionStyle:UITableViewCellSelectionStyleNone];
     return cell;

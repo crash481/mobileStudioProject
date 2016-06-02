@@ -103,7 +103,7 @@
     
     [RaceStorage addRace:race];
     [self.scheduleView.tableView reloadData];
-    [RaceStorage saveRaces:self.schedules];
+    [RaceStorage saveRaces];
 }
 
 
