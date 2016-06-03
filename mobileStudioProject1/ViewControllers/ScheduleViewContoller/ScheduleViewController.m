@@ -65,7 +65,7 @@
 
 - (NSArray<UITableViewRowAction *> *)tableView:(UITableView *)tableView editActionsForRowAtIndexPath:(NSIndexPath *)indexPath{
     
-    UITableViewRowAction *delete = [UITableViewRowAction rowActionWithStyle:UITableViewRowActionStyleDestructive title:@"Исключить" handler:^(UITableViewRowAction * __nonnull action, NSIndexPath * __nonnull indexPath) {
+    UITableViewRowAction *delete = [UITableViewRowAction rowActionWithStyle:UITableViewRowActionStyleDestructive title:@"Удалить" handler:^(UITableViewRowAction * __nonnull action, NSIndexPath * __nonnull indexPath) {
         [self.schedules removeObjectAtIndex:indexPath.row];
         
         [RaceStorage removeRace: [self.schedules objectAtIndex:indexPath.row]];

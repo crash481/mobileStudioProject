@@ -8,7 +8,7 @@
 
 @end
 
-@interface CreateRace2StepViewController : UIViewController<MKMapViewDelegate>
+@interface CreateRace2StepViewController : UIViewController<MKMapViewDelegate,CLLocationManagerDelegate>
 
 @property (weak) id<CreateRace2StepDelegate> delegate;
 

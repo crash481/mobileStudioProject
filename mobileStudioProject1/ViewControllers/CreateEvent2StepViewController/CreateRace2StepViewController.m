@@ -1,7 +1,7 @@
 #import "CreateRace2StepViewController.h"
 #import "CreateRace2StepView.h"
 #import "Race.h"
-
+#import "RacePointAnnotation.h"
 @interface CreateRace2StepViewController ()
 
 @property CreateRace2StepView *createRace2StepView;
@@ -12,7 +12,7 @@
 @property NSString *destination;
 @property CLLocationCoordinate2D startCoordinate;
 @property CLLocationCoordinate2D destinationCoordinate;
-
+@property CLLocationManager *locationManager;
 
 @property NSUInteger numberOfSetUserLocationOnMap;
 
@@ -22,6 +22,9 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.locationManager =  [[CLLocationManager alloc] init];
+    [self.locationManager requestWhenInUseAuthorization];
+    
     [self.createRace2StepView.mapView  setDelegate:self];
     [self.createRace2StepView.createButton addTarget:self action:@selector(createButtonTapped:) forControlEvents:UIControlEventTouchUpInside];
     
@@ -35,6 +38,8 @@
     [mapViewTapRecognizer requireGestureRecognizerToFail:doubleTap];
     
     [self.createRace2StepView.mapView addGestureRecognizer:mapViewTapRecognizer];
+    [self.createRace2StepView.mapView setShowsUserLocation:YES];
+    
     self.numberOfSetUserLocationOnMap = 1;
 }
 
@@ -71,7 +76,7 @@
     }
     self.startLocation = [[self.createRace2StepView startPlaceTextField] text];
     self.destination = [[self.createRace2StepView destinationPlaceTextField] text];
-    Race *newSheduleItem = [[Race alloc] initWithTitle:self.eventTitle transportType:self.transportTypes startDate:self.eventDate location:self.startLocation destination:self.destination startCoordinate:self.startCoordinate andDestinationCoordinate:self.destinationCoordinate];
+    Race *newSheduleItem = [[Race alloc] initWithTitle:self.eventTitle transportType:(NSSet<NSNumber*>*)self.transportTypes startDate:self.eventDate location:self.startLocation destination:self.destination startCoordinate:self.startCoordinate andDestinationCoordinate:self.destinationCoordinate];
     
     [self.delegate didCreateSheduleItem:newSheduleItem];
     [self.navigationController popToViewController:(UIViewController*)self.delegate animated:YES];
@@ -82,7 +87,6 @@
     
     if (gestureRecognizer.state == UIGestureRecognizerStateEnded)
     {
-        
         CLGeocoder *geocoder = [[CLGeocoder alloc] init];
         CGPoint touchPoint = [gestureRecognizer locationInView:self.createRace2StepView.mapView];
         CLLocationCoordinate2D tapLocation = [self.createRace2StepView.mapView convertPoint:touchPoint toCoordinateFromView:self.createRace2StepView.mapView];
@@ -93,13 +97,10 @@
                       [self.createRace2StepView.destinationPlaceTextField setText:[placemarks[0] name]];
                       self.destinationCoordinate = tapLocation;
                       
-                      MKPointAnnotation *destinationPin = [[MKPointAnnotation alloc] init];
-                      destinationPin.coordinate = self.destinationCoordinate;
-                      destinationPin.title = [placemarks[0] name];
-                      destinationPin.title = @"Finish";
+                      RacePointAnnotation *destinationPin = [[RacePointAnnotation alloc] initWithType: RaceAnnotationTypeFinish coordinate: self.destinationCoordinate andSubtitle: self.destination];
                       
-                      for (MKPointAnnotation *annotation in [self.createRace2StepView.mapView annotations]) {
-                          if([annotation.title isEqualToString:@"Finish"]){
+                      for (RacePointAnnotation *annotation in [self.createRace2StepView.mapView annotations]) {
+                          if( annotation.annotationType == RaceAnnotationTypeFinish ){
                               [self.createRace2StepView.mapView removeAnnotation:annotation];
                           }
                       }
@@ -110,12 +111,10 @@
                       [self.createRace2StepView.destinationPlaceTextField becomeFirstResponder];
                       self.startCoordinate = tapLocation;
                       
-                      MKPointAnnotation *startPin = [[MKPointAnnotation alloc] init];
-                      startPin.coordinate = self.startCoordinate;
-                      startPin.title = @"Start";
+                      RacePointAnnotation *startPin = [[RacePointAnnotation alloc] initWithType: RaceAnnotationTypeStart coordinate: self.startCoordinate andSubtitle: self.startLocation];
 
-                      for (MKPointAnnotation *annotation in [self.createRace2StepView.mapView annotations]) {
-                          if([annotation.title isEqualToString:@"Start"]){
+                      for (RacePointAnnotation *annotation in [self.createRace2StepView.mapView annotations]) {
+                          if( annotation.annotationType == RaceAnnotationTypeStart ){
                               [self.createRace2StepView.mapView removeAnnotation:annotation];
                           }
                       }
@@ -126,12 +125,15 @@
 }
 
 
-- (MKAnnotationView *)mapView:(MKMapView *)mapView viewForAnnotation:(id<MKAnnotation>)annotation{
+- (MKAnnotationView *)mapView:(MKMapView *)mapView viewForAnnotation:(RacePointAnnotation<MKAnnotation>*)annotation{
     
+    if ([annotation isKindOfClass:[MKUserLocation class]]) {
+        return nil;
+    }
     static NSString *startAnnotationIdentifier = @"Start";
     static NSString *destinationAnnotationIdentifier = @"Finish";
     
-    if([annotation.title isEqualToString:@"Start"]){
+    if(annotation.annotationType == RaceAnnotationTypeStart){
         MKAnnotationView* startAnnotationView = [self.createRace2StepView.mapView dequeueReusableAnnotationViewWithIdentifier:startAnnotationIdentifier];
         if(!startAnnotationView){
             startAnnotationView = [[MKAnnotationView alloc] initWithAnnotation:annotation reuseIdentifier:startAnnotationIdentifier];
@@ -140,7 +142,7 @@
         }
         return startAnnotationView;
     }
-    else if([annotation.title isEqualToString:@"Finish"]){
+    else if(annotation.annotationType == RaceAnnotationTypeFinish){
         MKAnnotationView* destinationAnnotationView = [self.createRace2StepView.mapView dequeueReusableAnnotationViewWithIdentifier:destinationAnnotationIdentifier];
         if(!destinationAnnotationView){
             destinationAnnotationView = [[MKAnnotationView alloc] initWithAnnotation:annotation reuseIdentifier:destinationAnnotationIdentifier];

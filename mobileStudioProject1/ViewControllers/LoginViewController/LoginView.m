@@ -35,6 +35,7 @@
         [self.passwordTextField setDelegate:self];
         
         
+        
         self.loginButton = [UIButton buttonWithType:UIButtonTypeSystem];
         [self.loginButton setBackgroundImage: [UIImage imageNamed:@"Button"] forState:UIControlStateNormal];
         [self.loginButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
@@ -60,11 +61,11 @@
 - (void)layoutSubviews{
     [super layoutSubviews];
     
-    [self.loginTextField anchorBottomCenterWithBottomPadding:self.frame.size.height/2+80 width:280 height:30];
-    [self.passwordTextField anchorBottomCenterWithBottomPadding:self.frame.size.height/2+40 width:280 height:30];
+    [self.loginTextField anchorBottomCenterWithBottomPadding:self.frame.size.height/2+80 width:290 height:32];
+    [self.passwordTextField anchorBottomCenterWithBottomPadding:self.frame.size.height/2+40 width:290 height:32];
     
-    [self.loginButton anchorBottomLeftWithLeftPadding:self.frame.size.width/2-140 bottomPadding:self.frame.size.height/2 width:115 height:25];
-    [self.registrationButton anchorBottomLeftWithLeftPadding:self.frame.size.width/2-5 bottomPadding:self.frame.size.height/2 width:145 height:25];
+    [self.loginButton anchorBottomLeftWithLeftPadding:self.frame.size.width/2-145 bottomPadding:self.frame.size.height/2-5 width:120 height:28];
+    [self.registrationButton anchorBottomLeftWithLeftPadding:self.frame.size.width/2-5 bottomPadding:self.frame.size.height/2-5 width:150 height:28];
 
     [self.enterButton anchorBottomCenterWithBottomPadding:20 width:200 height:25];
 }

@@ -71,6 +71,7 @@ static NSMutableArray<Race*> *bikeSchedules;
             [self.bikeSchedules addObject:race];
         }
     }
+    
 }
 
 @end

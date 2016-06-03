@@ -59,8 +59,8 @@
  
     [self.realNameTextBox anchorTopCenterWithTopPadding:20 width:self.width*0.85 height:40];
     
-    [self.logoutButton anchorBottomRightWithRightPadding:7 bottomPadding:12 width:self.width*0.47 height:35];
-    [self.addSkillButton anchorBottomLeftWithLeftPadding:7 bottomPadding:12 width:self.width*0.47 height:35 ];
+    [self.logoutButton anchorBottomRightWithRightPadding:6 bottomPadding:8 width:self.width*0.475 height:37];
+    [self.addSkillButton anchorBottomLeftWithLeftPadding:6 bottomPadding:8 width:self.width*0.475 height:37 ];
     [self.skillsTableView alignBetweenTop:self.realNameTextBox andBottom:self.addSkillButton centeredWithLeftAndRightPadding:0 topAndBottomPadding:10];
 }
 

@@ -42,7 +42,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "mobileStudioProject1/ViewControllers/AccountViewController/AccountView.m"
-            timestampString = "486309987.408525"
+            timestampString = "486675101.261959"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "37"
@@ -58,11 +58,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "mobileStudioProject1/AppDelegate.m"
-            timestampString = "486401263.686173"
+            timestampString = "486677551.701633"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "16"
-            endingLineNumber = "16"
+            startingLineNumber = "17"
+            endingLineNumber = "17"
             landmarkName = "-application:didFinishLaunchingWithOptions:"
             landmarkType = "5">
          </BreakpointContent>
@@ -90,11 +90,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "mobileStudioProject1/ViewControllers/CreateEventViewController/CreateRaceView.m"
-            timestampString = "486525172.942508"
+            timestampString = "486679628.95302"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "67"
-            endingLineNumber = "67"
+            startingLineNumber = "64"
+            endingLineNumber = "64"
             landmarkName = "-layoutSubviews"
             landmarkType = "5">
          </BreakpointContent>
@@ -217,13 +217,13 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "mobileStudioProject1/Model/FileStorage/RaceStorage/RaceStorage.m"
-            timestampString = "486577381.220799"
+            filePath = "mobileStudioProject1/ViewControllers/AccountViewController/AccountView.m"
+            timestampString = "486675101.261959"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "72"
-            endingLineNumber = "72"
-            landmarkName = "+loadRaces"
+            startingLineNumber = "38"
+            endingLineNumber = "38"
+            landmarkName = "-initWithFrame:"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
@@ -233,13 +233,13 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "mobileStudioProject1/Model/FileStorage/RaceStorage/RaceStorage.m"
-            timestampString = "486577468.72108"
+            filePath = "mobileStudioProject1/ViewControllers/CreateEvent2StepViewController/CreateRace2StepViewController.m"
+            timestampString = "486679175.751797"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "73"
-            endingLineNumber = "73"
-            landmarkName = "+loadRaces"
+            startingLineNumber = "65"
+            endingLineNumber = "65"
+            landmarkName = "-mapView:didUpdateUserLocation:"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
@@ -249,13 +249,13 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "mobileStudioProject1/Model/FileStorage/RaceStorage/RaceStorage.m"
-            timestampString = "486577470.293049"
+            filePath = "mobileStudioProject1/ViewControllers/CreateEvent2StepViewController/CreateRace2StepViewController.m"
+            timestampString = "486679175.751797"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "64"
-            endingLineNumber = "64"
-            landmarkName = "+loadRaces"
+            startingLineNumber = "66"
+            endingLineNumber = "66"
+            landmarkName = "-mapView:didUpdateUserLocation:"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>

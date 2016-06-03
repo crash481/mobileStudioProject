@@ -1,6 +1,7 @@
 #import "RaceView.h"
 #import "UIView+Facade.h"
 #import "NSDate+DateTools.h"
+#import "RacePointAnnotation.h"
 
 @interface RaceView()
 
@@ -83,10 +84,11 @@
     [self.transportTypeLabel anchorTopCenterWithTopPadding:80 width:self.width*0.6 height:16];
     [self.transportTypeTableView alignUnder:self.transportTypeLabel matchingCenterWithTopPadding:3 width:self.width*0.6 height:self.height*0.2];
     
-    [self.joinButton alignUnder:self.transportTypeTableView withLeftPadding:10 topPadding:3 width:self.frame.size.width*0.42 height:35];
-    [self.membersButton alignUnder:self.transportTypeTableView withRightPadding:10 topPadding:3 width:self.frame.size.width*0.42 height:35];
+    [self.joinButton alignUnder:self.transportTypeTableView withLeftPadding:10 topPadding:3 width:self.frame.size.width*0.45 height:35];
+    [self.membersButton alignUnder:self.transportTypeTableView withRightPadding:10 topPadding:3 width:self.frame.size.width*0.45 height:35];
     
     [self.mapView alignUnder:self.joinButton centeredFillingWidthAndHeightWithLeftAndRightPadding:0 topAndBottomPadding:0];
+    self.mapView.frame = CGRectMake(self.mapView.frame.origin.x, self.mapView.frame.origin.y+5, self.mapView.frame.size.width, self.mapView.frame.size.height);
 
 }
 -(void) configureData: (Race*)race{
@@ -95,19 +97,10 @@
     self.destinationLabel.text = race.destination;
     self.startDateLabel.text = [race.startDate formattedDateWithFormat:@"dd MMMM YYYY в HH:mm" locale:[[NSLocale alloc]initWithLocaleIdentifier:@"ru_RU"]];
     
-    MKPointAnnotation *startPin = [[MKPointAnnotation alloc] init];
-    startPin.coordinate = race.startCoordinate;
-    startPin.subtitle = race.startLocation;
-    startPin.title = @"Start";
-    
-    MKPointAnnotation *destinationPin = [[MKPointAnnotation alloc] init];
-    destinationPin.coordinate = race.destinationCoordinate;
-    destinationPin.subtitle = race.destination;
-    destinationPin.title = @"Finish";
-    
+    RacePointAnnotation *startPin = [[RacePointAnnotation alloc] initWithType: RaceAnnotationTypeStart coordinate: race.startCoordinate andSubtitle: race.startLocation];
+    RacePointAnnotation *destinationPin = [[RacePointAnnotation alloc] initWithType: RaceAnnotationTypeFinish coordinate: race.destinationCoordinate andSubtitle: race.destination];
     [self.mapView addAnnotation:startPin];
     [self.mapView addAnnotation:destinationPin];
-    
     self.mapView.showsUserLocation = YES;
     
     [self.mapView setRegion:MKCoordinateRegionMake(CLLocationCoordinate2DMake((startPin.coordinate.latitude + destinationPin.coordinate.latitude)/2, (startPin.coordinate.longitude + destinationPin.coordinate.longitude)/2.0), MKCoordinateSpanMake(fabs(startPin.coordinate.latitude - destinationPin.coordinate.latitude)*2, fabs(startPin.coordinate.longitude - destinationPin.coordinate.longitude)*2))];

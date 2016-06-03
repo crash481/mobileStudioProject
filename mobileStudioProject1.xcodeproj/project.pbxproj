@@ -31,6 +31,7 @@
 		7CC86FAA1CFDE9BE006483DD /* FileStorage.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CC86FA91CFDE9BE006483DD /* FileStorage.m */; };
 		7CC86FAE1CFDF4C5006483DD /* RaceStorage.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CC86FAD1CFDF4C5006483DD /* RaceStorage.m */; };
 		7CCDCE281CEA11B400D12578 /* SchedulesTabBarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CCDCE271CEA11B400D12578 /* SchedulesTabBarViewController.m */; };
+		7CD164071D009D2600F9F652 /* RacePointAnnotation.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CD164061D009D2600F9F652 /* RacePointAnnotation.m */; };
 		AFEBECC2D91438791289C901 /* libPods-mobileStudioProject1.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D36F7937B168B84206CB91A7 /* libPods-mobileStudioProject1.a */; };
 /* End PBXBuildFile section */
 
@@ -83,6 +84,8 @@
 		7CC86FAD1CFDF4C5006483DD /* RaceStorage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RaceStorage.m; sourceTree = "<group>"; };
 		7CCDCE261CEA11B400D12578 /* SchedulesTabBarViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SchedulesTabBarViewController.h; sourceTree = "<group>"; };
 		7CCDCE271CEA11B400D12578 /* SchedulesTabBarViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SchedulesTabBarViewController.m; sourceTree = "<group>"; };
+		7CD164051D009D2600F9F652 /* RacePointAnnotation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RacePointAnnotation.h; sourceTree = "<group>"; };
+		7CD164061D009D2600F9F652 /* RacePointAnnotation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RacePointAnnotation.m; sourceTree = "<group>"; };
 		CABC0370FD98A8D63656AAEB /* Pods-mobileStudioProject1.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-mobileStudioProject1.release.xcconfig"; path = "Pods/Target Support Files/Pods-mobileStudioProject1/Pods-mobileStudioProject1.release.xcconfig"; sourceTree = "<group>"; };
 		D36F7937B168B84206CB91A7 /* libPods-mobileStudioProject1.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-mobileStudioProject1.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -243,6 +246,7 @@
 		7C9FC3181CCFDAA900498273 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				7CD164041D009CC100F9F652 /* RaceAnnotation */,
 				7CC86FAB1CFDF4B1006483DD /* RaceStorage */,
 				7CC86FA71CFDE982006483DD /* FileStorage */,
 				7CA64F9C1CD8F48500FB55B3 /* Member */,
@@ -316,6 +320,15 @@
 				7CCDCE271CEA11B400D12578 /* SchedulesTabBarViewController.m */,
 			);
 			path = SchedulesTabBarViewController;
+			sourceTree = "<group>";
+		};
+		7CD164041D009CC100F9F652 /* RaceAnnotation */ = {
+			isa = PBXGroup;
+			children = (
+				7CD164051D009D2600F9F652 /* RacePointAnnotation.h */,
+				7CD164061D009D2600F9F652 /* RacePointAnnotation.m */,
+			);
+			path = RaceAnnotation;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -440,6 +453,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				7CA64F9F1CD8F49600FB55B3 /* Member.m in Sources */,
+				7CD164071D009D2600F9F652 /* RacePointAnnotation.m in Sources */,
 				7C040B131CEB73A9000FC5C1 /* CreateRaceViewController.m in Sources */,
 				7C17D3BF1CCFC26000672EB6 /* AppDelegate.m in Sources */,
 				7C040B1A1CECB314000FC5C1 /* CreateRace2StepView.m in Sources */,

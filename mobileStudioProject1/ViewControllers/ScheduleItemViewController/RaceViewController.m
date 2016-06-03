@@ -1,6 +1,6 @@
 #import "RaceViewController.h"
 #import "EventMembersViewController.h"
-
+#import "RacePointAnnotation.h"
 
 @interface RaceViewController ()
 
@@ -73,12 +73,12 @@
 }
 
 
-- (MKAnnotationView *)mapView:(MKMapView *)mapView viewForAnnotation:(id<MKAnnotation>)annotation{
+- (MKAnnotationView *)mapView:(MKMapView *)mapView viewForAnnotation:(RacePointAnnotation<MKAnnotation>*)annotation{
     
     static NSString *startAnnotationIdentifier = @"Start";
     static NSString *destinationAnnotationIdentifier = @"Finish";
     
-    if([annotation.title isEqualToString:@"Start"]){
+    if( annotation.annotationType == RaceAnnotationTypeStart ){
         MKAnnotationView* startAnnotationView = [self.raceView.mapView dequeueReusableAnnotationViewWithIdentifier:startAnnotationIdentifier];
         if(!startAnnotationView){
             startAnnotationView = [[MKAnnotationView alloc] initWithAnnotation:annotation reuseIdentifier:startAnnotationIdentifier];

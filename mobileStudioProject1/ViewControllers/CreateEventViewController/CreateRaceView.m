@@ -61,27 +61,13 @@
 }
 
 -(void)layoutSubviews{
-    
-    if( [[UIDevice currentDevice] orientation] != UIDeviceOrientationLandscapeLeft &&  [[UIDevice currentDevice] orientation] != UIDeviceOrientationLandscapeRight){
-    
-        [self.titleTextField anchorTopCenterWithTopPadding:10 width:self.frame.size.width*0.8 height:30];
+        [self.titleTextField anchorTopCenterWithTopPadding:10 width:self.frame.size.width*0.8 height:35];
         [self.errorLabel alignUnder:self.titleTextField matchingLeftWithTopPadding:2 width:300 height:12];
         [self.transportTypeLabel alignUnder:self.titleTextField matchingCenterWithTopPadding:25 width:self.width*0.8 height:15];
         [self.transportTypeTableView alignUnder:self.transportTypeLabel matchingCenterWithTopPadding:8 width:self.width*0.8 height:self.height*0.23];
         [self.dateLabel alignUnder:self.transportTypeTableView withLeftPadding:12 topPadding:10 width:340 height:13];
         [self.datePicker alignBetweenTop:self.dateLabel andBottom:self.nextButton centeredWithLeftAndRightPadding:0 topAndBottomPadding:0];
-        [self.nextButton anchorBottomCenterWithBottomPadding:10 width:200 height:35];
-
-    }
-    else {
-    [self.titleTextField anchorTopCenterWithTopPadding:7 width:self.frame.size.width*0.8 height:30];
-    [self.errorLabel alignUnder:self.titleTextField matchingLeftWithTopPadding:2 width:300 height:12];
-    [self.transportTypeLabel alignUnder:self.titleTextField matchingCenterWithTopPadding:18 width:self.width*0.7 height:15];
-    [self.transportTypeTableView alignUnder:self.transportTypeLabel matchingCenterWithTopPadding:5 width:self.width*0.7 height:self.height*0.23];
-    [self.dateLabel alignUnder:self.transportTypeTableView withLeftPadding:10 topPadding:5 width:340 height:13];
-    [self.datePicker alignBetweenTop:self.dateLabel andBottom:self.nextButton centeredWithLeftAndRightPadding:0 topAndBottomPadding:0];
-    [self.nextButton anchorBottomCenterWithBottomPadding:5 width:200 height:30];
-    }
+        [self.nextButton anchorBottomCenterWithBottomPadding:10 width:230 height:38];
 }
 
 - (BOOL)textFieldShouldReturn:(UITextField *)textField{

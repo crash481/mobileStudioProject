@@ -20,7 +20,6 @@
         self.destinationPlaceTextField = [[UITextField alloc] init];
         self.createButton = [UIButton buttonWithType:UIButtonTypeSystem];
         
-        [self.mapView setShowsUserLocation:YES];
         [self.startPlaceTextField setPlaceholder:@"Начало заезда из:"];
         [self.startPlaceTextField setBorderStyle:UITextBorderStyleRoundedRect];
         [self.startPlaceTextField setDelegate:self];
@@ -45,16 +44,16 @@
         
         [self.startPlaceTextField anchorTopCenterWithTopPadding:15 width:self.frame.size.width*0.8 height:35];
         [self.destinationPlaceTextField alignUnder:self.startPlaceTextField matchingCenterWithTopPadding:10 width:self.frame.size.width*0.8 height:35];
-        [self.createButton alignUnder:self.destinationPlaceTextField matchingCenterWithTopPadding:15 width:200 height:30];
+        [self.createButton alignUnder:self.destinationPlaceTextField matchingCenterWithTopPadding:15 width:230 height:34];
         [self.mapView alignUnder:self.createButton centeredFillingWidthAndHeightWithLeftAndRightPadding:0 topAndBottomPadding:0];
     }
     else{
-        
         [self.startPlaceTextField anchorTopCenterWithTopPadding:10 width:self.frame.size.width*0.8 height:30];
         [self.destinationPlaceTextField alignUnder:self.startPlaceTextField matchingCenterWithTopPadding:7 width:self.frame.size.width*0.8 height:30];
-        [self.createButton alignUnder:self.destinationPlaceTextField matchingCenterWithTopPadding:7 width:200 height:25];
+        [self.createButton alignUnder:self.destinationPlaceTextField matchingCenterWithTopPadding:7 width:220 height:30];
         [self.mapView alignUnder:self.createButton centeredFillingWidthAndHeightWithLeftAndRightPadding:0 topAndBottomPadding:0];
     }
+    self.mapView.frame = CGRectMake(self.mapView.frame.origin.x, self.mapView.frame.origin.y+5, self.mapView.frame.size.width, self.mapView.frame.size.height);
 }
 
 - (BOOL)textFieldShouldReturn:(UITextField *)textField{

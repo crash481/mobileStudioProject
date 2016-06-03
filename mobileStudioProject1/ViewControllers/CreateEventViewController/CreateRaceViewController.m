@@ -42,9 +42,8 @@
     if( cell == nil ){
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:reuseIndentifier];
     }
-    
     cell.textLabel.text = self.transportTypes[indexPath.row];
-    cell.textLabel.font = [UIFont systemFontOfSize:13];
+    cell.textLabel.font = [UIFont systemFontOfSize:14];
     [cell setSelectionStyle:UITableViewCellSelectionStyleNone];
     return cell;
 }
@@ -54,7 +53,7 @@
 }
 
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
-    return 25;
+    return 28;
 }
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
