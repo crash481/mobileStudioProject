@@ -16,6 +16,9 @@
 - (instancetype)initWithFrame:(CGRect)frame{
     if(self = [super initWithFrame:frame ]){
         
+        self.backgroundColor = [UIColor whiteColor];
+        
+        
         self.loginTextField = [[UITextField alloc] init];
         self.loginTextField.backgroundColor = [UIColor lightGrayColor];
         self.loginTextField.textColor = [UIColor whiteColor];
@@ -23,6 +26,7 @@
         self.loginTextField.leftView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"LoginImage"]];
         [self.loginTextField setBorderStyle:UITextBorderStyleRoundedRect];
         [self.loginTextField setPlaceholder:@"Логин"];
+        self.loginTextField.autocapitalizationType = UITextAutocapitalizationTypeNone;
         [self.loginTextField setDelegate:self];
         
         self.passwordTextField = [[UITextField alloc] init];
@@ -32,6 +36,7 @@
         self.passwordTextField.leftView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"PasswordImage"]];
         [self.passwordTextField setBorderStyle:UITextBorderStyleRoundedRect];
         [self.passwordTextField setPlaceholder:@"Пароль"];
+        self.passwordTextField.secureTextEntry = YES;
         [self.passwordTextField setDelegate:self];
         
         

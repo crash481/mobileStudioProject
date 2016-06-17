@@ -4,6 +4,7 @@
 #import "ScheduleTableViewCell.h"
 #import "CreateRaceViewController.h"
 #import "RaceStorage.h"
+#import "ArrayDataSource.h"
 
 @interface ScheduleViewController()
 
@@ -16,13 +17,22 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
-     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(addEventClicked:)];
+    self.scheduleView.tableView.delegate = self;
+    self.scheduleView.tableView.dataSource = self;
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(addEventClicked:)];
     [self.scheduleView.tableView reloadData];
+    
+    
 }
 
 -(void)viewWillAppear:(BOOL)animated{
     [self.scheduleView.tableView reloadData];
+
+//    self.navigationController.navigationBar.barStyle = UIBarStyleBlack;
+//    self.tabBarController.tabBar.barStyle = UIBarStyleBlack;
+//    self.tabBarController.tabBar.tintColor = [UIColor whiteColor];
+//    self.navigationController.navigationBar.barTintColor = [UIColor colorWithRed:101.0/255 green:184.0/255 blue:178.0/255 alpha:0.9];
+//    self.tabBarController.tabBar.barTintColor = [UIColor colorWithRed:101.0/255 green:184.0/255 blue:178.0/255 alpha:0.6];
 }
 
 -(instancetype)initWithSchedules: (NSMutableArray<Race*>*)schedules{
@@ -46,9 +56,8 @@
         cell = [[ScheduleTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:reuseIndentifier];
     }
     [cell configureData: self.schedules[indexPath.row] ];
-    
+    cell.backgroundColor = [UIColor clearColor];
     return cell;
-    
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
@@ -58,7 +67,6 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     
     Race *race = self.schedules[indexPath.row];
-    
     RaceViewController *raceViewController = [[RaceViewController alloc] initWithRace:race];
     [self.navigationController pushViewController:raceViewController animated:YES];
 }
@@ -66,22 +74,17 @@
 - (NSArray<UITableViewRowAction *> *)tableView:(UITableView *)tableView editActionsForRowAtIndexPath:(NSIndexPath *)indexPath{
     
     UITableViewRowAction *delete = [UITableViewRowAction rowActionWithStyle:UITableViewRowActionStyleDestructive title:@"Удалить" handler:^(UITableViewRowAction * __nonnull action, NSIndexPath * __nonnull indexPath) {
-        [self.schedules removeObjectAtIndex:indexPath.row];
         
         [RaceStorage removeRace: [self.schedules objectAtIndex:indexPath.row]];
         [RaceStorage saveRaces];
         [self.scheduleView.tableView reloadData];
     }];
-    
-    
     return @[delete];
 }
 
 -(void)loadView{
     self.scheduleView = [[ScheduleView alloc] init];
     self.view = self.scheduleView;
-    self.scheduleView.tableView.delegate = self;
-    self.scheduleView.tableView.dataSource = self;
 }
 
 -(void)addEventClicked: (id)sender{

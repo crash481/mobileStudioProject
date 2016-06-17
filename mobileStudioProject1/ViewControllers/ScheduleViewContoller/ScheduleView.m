@@ -17,6 +17,8 @@
         self.tableView = [[UITableView alloc] init];
         [self addSubview:self.tableView];
     }
+    
+    self.tableView.backgroundColor = [UIColor clearColor];
     return self;
 }
 

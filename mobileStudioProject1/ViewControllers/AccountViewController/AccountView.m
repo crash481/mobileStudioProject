@@ -1,5 +1,7 @@
 #import "AccountView.h"
 #import "UIView+Facade.h"
+#import "IQKeyboardManager.h"
+
 
 @interface AccountView()
 
@@ -17,12 +19,13 @@
     
     if(self = [super initWithFrame:frame]){
         
+        self.backgroundColor = [UIColor whiteColor];
+        
         self.realNameTextBox = [[UITextField alloc] init];
         self.skillsTableView = [[UITableView alloc] init];
         self.addSkillButton = [UIButton buttonWithType:UIButtonTypeSystem];
         self.logoutButton = [UIButton buttonWithType:UIButtonTypeSystem];
-        self.realNameLeftLabel = [[UILabel alloc] initWithFrame:CGRectMake(100, 0, 90, 30)];
-        
+        self.realNameLeftLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 90, 30)];
         
         [self.realNameLeftLabel setText:@"Ваше имя:"];
         [self.realNameLeftLabel setTextColor:[UIColor blackColor]];

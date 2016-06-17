@@ -1,14 +1,22 @@
 PODS:
+  - ActionSheetPicker (1.6.2)
+  - ChameleonFramework (2.1.0):
+    - ChameleonFramework/Default (= 2.1.0)
+  - ChameleonFramework/Default (2.1.0)
   - DateTools (1.7.0)
   - Facade (1.1.1)
   - IQKeyboardManager (4.0.3)
 
 DEPENDENCIES:
+  - ActionSheetPicker
+  - ChameleonFramework
   - DateTools
   - Facade
   - IQKeyboardManager
 
 SPEC CHECKSUMS:
+  ActionSheetPicker: cc5255a36aabaf34245b97a478059d26bac8cd84
+  ChameleonFramework: d21a3cc247abfe5e37609a283a8238b03575cf64
   DateTools: 53288ee8b905fdc75897a1e6b5cc0144b14cba60
   Facade: 3c5c6fb1ba042d20885cfe5a290050f5b9351ca2
   IQKeyboardManager: be9695ffc5a52077deb4847608f338771022d6d1

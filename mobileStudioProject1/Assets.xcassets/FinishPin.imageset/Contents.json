@@ -2,17 +2,17 @@
   "images" : [
     {
       "idiom" : "universal",
-      "filename" : "Map-Marker-Chequered-Flag-Right-Pink-icon-2.png",
+      "filename" : "FinishPin.png",
       "scale" : "1x"
     },
     {
       "idiom" : "universal",
-      "filename" : "Map-Marker-Chequered-Flag-Right-Pink-icon-1.png",
+      "filename" : "FinishPin@2x.png",
       "scale" : "2x"
     },
     {
       "idiom" : "universal",
-      "filename" : "Map-Marker-Chequered-Flag-Right-Pink-icon.png",
+      "filename" : "FinishPin@3x.png",
       "scale" : "3x"
     }
   ],

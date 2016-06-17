@@ -17,8 +17,11 @@
 		7C17D3BF1CCFC26000672EB6 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C17D3BE1CCFC26000672EB6 /* AppDelegate.m */; };
 		7C17D3C71CCFC26000672EB6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7C17D3C61CCFC26000672EB6 /* Assets.xcassets */; };
 		7C17D3CA1CCFC26000672EB6 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7C17D3C81CCFC26000672EB6 /* LaunchScreen.storyboard */; };
+		7C1E49DF1D12DCF50028F5BD /* UIView+CustomAnimations.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C1E49DE1D12DCF50028F5BD /* UIView+CustomAnimations.m */; };
+		7C28461F1D09C171002EA8A4 /* UserProfile.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C28461E1D09C171002EA8A4 /* UserProfile.m */; };
 		7C514B811CFB1BB900A23923 /* AccountViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C514B801CFB1BB900A23923 /* AccountViewController.m */; };
 		7C514B841CFB1BC800A23923 /* AccountView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C514B831CFB1BC800A23923 /* AccountView.m */; };
+		7C7783FA1D09D8C800142ED5 /* ArrayDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C7783F91D09D8C800142ED5 /* ArrayDataSource.m */; };
 		7C9FC3141CCFDA9900498273 /* RaceView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C9FC30C1CCFDA9900498273 /* RaceView.m */; };
 		7C9FC3151CCFDA9900498273 /* RaceViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C9FC30E1CCFDA9900498273 /* RaceViewController.m */; };
 		7C9FC3161CCFDA9900498273 /* ScheduleView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C9FC3111CCFDA9900498273 /* ScheduleView.m */; };
@@ -26,7 +29,7 @@
 		7C9FC31C1CCFDAA900498273 /* Race.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C9FC31B1CCFDAA900498273 /* Race.m */; };
 		7CA64F981CD8E62500FB55B3 /* EventMembersViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CA64F971CD8E62500FB55B3 /* EventMembersViewController.m */; };
 		7CA64F9B1CD8E79A00FB55B3 /* EventMembersView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CA64F9A1CD8E79A00FB55B3 /* EventMembersView.m */; };
-		7CA64F9F1CD8F49600FB55B3 /* Member.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CA64F9E1CD8F49600FB55B3 /* Member.m */; };
+		7CA64F9F1CD8F49600FB55B3 /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CA64F9E1CD8F49600FB55B3 /* User.m */; };
 		7CAC73F71CD263EB007140C5 /* ScheduleTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CAC73F61CD263EB007140C5 /* ScheduleTableViewCell.m */; };
 		7CC86FAA1CFDE9BE006483DD /* FileStorage.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CC86FA91CFDE9BE006483DD /* FileStorage.m */; };
 		7CC86FAE1CFDF4C5006483DD /* RaceStorage.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CC86FAD1CFDF4C5006483DD /* RaceStorage.m */; };
@@ -56,10 +59,16 @@
 		7C17D3C61CCFC26000672EB6 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		7C17D3C91CCFC26000672EB6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		7C17D3CB1CCFC26000672EB6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		7C1E49DD1D12DCF50028F5BD /* UIView+CustomAnimations.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+CustomAnimations.h"; sourceTree = "<group>"; };
+		7C1E49DE1D12DCF50028F5BD /* UIView+CustomAnimations.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+CustomAnimations.m"; sourceTree = "<group>"; };
+		7C28461D1D09C171002EA8A4 /* UserProfile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserProfile.h; sourceTree = "<group>"; };
+		7C28461E1D09C171002EA8A4 /* UserProfile.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserProfile.m; sourceTree = "<group>"; };
 		7C514B7F1CFB1BB900A23923 /* AccountViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AccountViewController.h; sourceTree = "<group>"; };
 		7C514B801CFB1BB900A23923 /* AccountViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AccountViewController.m; sourceTree = "<group>"; };
 		7C514B821CFB1BC800A23923 /* AccountView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AccountView.h; sourceTree = "<group>"; };
 		7C514B831CFB1BC800A23923 /* AccountView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AccountView.m; sourceTree = "<group>"; };
+		7C7783F81D09D8C800142ED5 /* ArrayDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ArrayDataSource.h; sourceTree = "<group>"; };
+		7C7783F91D09D8C800142ED5 /* ArrayDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ArrayDataSource.m; sourceTree = "<group>"; };
 		7C9FC30B1CCFDA9900498273 /* RaceView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RaceView.h; sourceTree = "<group>"; };
 		7C9FC30C1CCFDA9900498273 /* RaceView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RaceView.m; sourceTree = "<group>"; };
 		7C9FC30D1CCFDA9900498273 /* RaceViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RaceViewController.h; sourceTree = "<group>"; };
@@ -74,8 +83,8 @@
 		7CA64F971CD8E62500FB55B3 /* EventMembersViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EventMembersViewController.m; sourceTree = "<group>"; };
 		7CA64F991CD8E79A00FB55B3 /* EventMembersView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EventMembersView.h; sourceTree = "<group>"; };
 		7CA64F9A1CD8E79A00FB55B3 /* EventMembersView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EventMembersView.m; sourceTree = "<group>"; };
-		7CA64F9D1CD8F49600FB55B3 /* Member.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Member.h; sourceTree = "<group>"; };
-		7CA64F9E1CD8F49600FB55B3 /* Member.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Member.m; sourceTree = "<group>"; };
+		7CA64F9D1CD8F49600FB55B3 /* User.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = User.h; sourceTree = "<group>"; };
+		7CA64F9E1CD8F49600FB55B3 /* User.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = User.m; sourceTree = "<group>"; };
 		7CAC73F51CD263EB007140C5 /* ScheduleTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ScheduleTableViewCell.h; sourceTree = "<group>"; };
 		7CAC73F61CD263EB007140C5 /* ScheduleTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ScheduleTableViewCell.m; sourceTree = "<group>"; };
 		7CC86FA81CFDE9BE006483DD /* FileStorage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FileStorage.h; sourceTree = "<group>"; };
@@ -173,6 +182,7 @@
 		7C17D3B91CCFC26000672EB6 /* mobileStudioProject1 */ = {
 			isa = PBXGroup;
 			children = (
+				7C2846201D09D528002EA8A4 /* Helpers */,
 				7C9FC3181CCFDAA900498273 /* Model */,
 				7C9FC3091CCFDA9900498273 /* ViewControllers */,
 				7C17D3BD1CCFC26000672EB6 /* AppDelegate.h */,
@@ -193,6 +203,34 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		7C1E49DC1D12DCE10028F5BD /* UIView+CustomAnimations */ = {
+			isa = PBXGroup;
+			children = (
+				7C1E49DD1D12DCF50028F5BD /* UIView+CustomAnimations.h */,
+				7C1E49DE1D12DCF50028F5BD /* UIView+CustomAnimations.m */,
+			);
+			name = "UIView+CustomAnimations";
+			path = "NSObject+CustomAnimations";
+			sourceTree = "<group>";
+		};
+		7C28461C1D09C0A1002EA8A4 /* UserProfile */ = {
+			isa = PBXGroup;
+			children = (
+				7C28461D1D09C171002EA8A4 /* UserProfile.h */,
+				7C28461E1D09C171002EA8A4 /* UserProfile.m */,
+			);
+			path = UserProfile;
+			sourceTree = "<group>";
+		};
+		7C2846201D09D528002EA8A4 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				7C1E49DC1D12DCE10028F5BD /* UIView+CustomAnimations */,
+				7C7783F11D09D57200142ED5 /* ArrayDataSource */,
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
 		7C514B7E1CFB1B9E00A23923 /* AccountViewController */ = {
 			isa = PBXGroup;
 			children = (
@@ -202,6 +240,15 @@
 				7C514B831CFB1BC800A23923 /* AccountView.m */,
 			);
 			path = AccountViewController;
+			sourceTree = "<group>";
+		};
+		7C7783F11D09D57200142ED5 /* ArrayDataSource */ = {
+			isa = PBXGroup;
+			children = (
+				7C7783F81D09D8C800142ED5 /* ArrayDataSource.h */,
+				7C7783F91D09D8C800142ED5 /* ArrayDataSource.m */,
+			);
+			path = ArrayDataSource;
 			sourceTree = "<group>";
 		};
 		7C9FC3091CCFDA9900498273 /* ViewControllers */ = {
@@ -246,10 +293,11 @@
 		7C9FC3181CCFDAA900498273 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				7C28461C1D09C0A1002EA8A4 /* UserProfile */,
 				7CD164041D009CC100F9F652 /* RaceAnnotation */,
 				7CC86FAB1CFDF4B1006483DD /* RaceStorage */,
 				7CC86FA71CFDE982006483DD /* FileStorage */,
-				7CA64F9C1CD8F48500FB55B3 /* Member */,
+				7CA64F9C1CD8F48500FB55B3 /* User */,
 				7C9FC3191CCFDAA900498273 /* Race */,
 			);
 			path = Model;
@@ -276,12 +324,13 @@
 			path = EventMembersViewController;
 			sourceTree = "<group>";
 		};
-		7CA64F9C1CD8F48500FB55B3 /* Member */ = {
+		7CA64F9C1CD8F48500FB55B3 /* User */ = {
 			isa = PBXGroup;
 			children = (
-				7CA64F9D1CD8F49600FB55B3 /* Member.h */,
-				7CA64F9E1CD8F49600FB55B3 /* Member.m */,
+				7CA64F9D1CD8F49600FB55B3 /* User.h */,
+				7CA64F9E1CD8F49600FB55B3 /* User.m */,
 			);
+			name = User;
 			path = Member;
 			sourceTree = "<group>";
 		};
@@ -452,7 +501,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7CA64F9F1CD8F49600FB55B3 /* Member.m in Sources */,
+				7CA64F9F1CD8F49600FB55B3 /* User.m in Sources */,
 				7CD164071D009D2600F9F652 /* RacePointAnnotation.m in Sources */,
 				7C040B131CEB73A9000FC5C1 /* CreateRaceViewController.m in Sources */,
 				7C17D3BF1CCFC26000672EB6 /* AppDelegate.m in Sources */,
@@ -460,6 +509,8 @@
 				7C514B841CFB1BC800A23923 /* AccountView.m in Sources */,
 				7C040B0F1CEA7997000FC5C1 /* LoginView.m in Sources */,
 				7C040B0C1CEA7987000FC5C1 /* LoginViewController.m in Sources */,
+				7C7783FA1D09D8C800142ED5 /* ArrayDataSource.m in Sources */,
+				7C28461F1D09C171002EA8A4 /* UserProfile.m in Sources */,
 				7C9FC3171CCFDA9900498273 /* ScheduleViewController.m in Sources */,
 				7C17D3BC1CCFC26000672EB6 /* main.m in Sources */,
 				7CC86FAA1CFDE9BE006483DD /* FileStorage.m in Sources */,
@@ -469,6 +520,7 @@
 				7C9FC3141CCFDA9900498273 /* RaceView.m in Sources */,
 				7CA64F981CD8E62500FB55B3 /* EventMembersViewController.m in Sources */,
 				7CAC73F71CD263EB007140C5 /* ScheduleTableViewCell.m in Sources */,
+				7C1E49DF1D12DCF50028F5BD /* UIView+CustomAnimations.m in Sources */,
 				7CC86FAE1CFDF4C5006483DD /* RaceStorage.m in Sources */,
 				7CCDCE281CEA11B400D12578 /* SchedulesTabBarViewController.m in Sources */,
 				7C040B161CEB73BA000FC5C1 /* CreateRaceView.m in Sources */,

@@ -1,10 +1,15 @@
 #import "LoginViewController.h"
 #import "LoginView.h"
 #import "SchedulesTabBarViewController.h"
+#import "FileStorage.h"
+#import "User.h"
+#import "UserProfile.h"
 
 @interface LoginViewController ()
 
 @property LoginView *loginView;
+@property NSString *username;
+@property NSString *password;
 @end
 
 @implementation LoginViewController
@@ -22,10 +27,16 @@
 
 - (void)enterButtonClicked:(id)sender {
     
-    
-    
-    SchedulesTabBarViewController *schedulesTabBarViewController = [[SchedulesTabBarViewController alloc] init];
-    [self presentViewController:schedulesTabBarViewController animated:YES completion:nil];
+    if(self.loginView.loginTextField.hasText){
+        self.username = self.loginView.loginTextField.text;
+    }
+    else{
+        self.username = @"unknownUserName";
+    }
+    [UserProfile sharedProfile].user.nickname = self.username;
+    [[UserProfile sharedProfile] saveUserProfile];
+    [self dismissViewControllerAnimated:YES completion:nil];
 }
+
 
 @end

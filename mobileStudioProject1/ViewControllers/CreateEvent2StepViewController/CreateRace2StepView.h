@@ -7,4 +7,8 @@
 @property UITextField *startPlaceTextField;
 @property UITextField *destinationPlaceTextField;
 @property (readonly)UIButton *createButton;
+@property (readonly)UIButton *startOnMapButton;
+@property (readonly)UIButton *destinationOnMapButton;
+@property (readonly)UIButton *confirmMapSelection;
+
 @end

@@ -101,7 +101,6 @@
     RacePointAnnotation *destinationPin = [[RacePointAnnotation alloc] initWithType: RaceAnnotationTypeFinish coordinate: race.destinationCoordinate andSubtitle: race.destination];
     [self.mapView addAnnotation:startPin];
     [self.mapView addAnnotation:destinationPin];
-    self.mapView.showsUserLocation = YES;
     
     [self.mapView setRegion:MKCoordinateRegionMake(CLLocationCoordinate2DMake((startPin.coordinate.latitude + destinationPin.coordinate.latitude)/2, (startPin.coordinate.longitude + destinationPin.coordinate.longitude)/2.0), MKCoordinateSpanMake(fabs(startPin.coordinate.latitude - destinationPin.coordinate.latitude)*2, fabs(startPin.coordinate.longitude - destinationPin.coordinate.longitude)*2))];
 

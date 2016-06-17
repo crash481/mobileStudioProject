@@ -1,6 +1,7 @@
 #import "CreateRaceViewController.h"
 #import "CreateRaceView.h"
 #import "CreateRace2StepViewController.h"
+#import "UIView+CustomAnimations.h"
 
 @interface CreateRaceViewController ()
 
@@ -10,6 +11,7 @@
 @property NSDate *eventDate;
 @property NSMutableArray<NSNumber*> *selectedTransportTypes;
 @property NSMutableArray<NSString*> *transportTypes;
+@property UIScrollView *scroll;
 
 @end
 
@@ -29,9 +31,17 @@
 }
 
 - (void)loadView{
+    [super loadView];
     
-    self.createRaceView = [[CreateRaceView alloc] init];
-    self.view = self.createRaceView;
+   self.createRaceView = [[CreateRaceView alloc] init];
+    self.scroll = [[UIScrollView alloc] initWithFrame:self.view.bounds];
+    self.scroll.contentSize = CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height - self.navigationController.navigationBar.frame.size.height - self.tabBarController.tabBar.frame.size.height - [[UIApplication sharedApplication] statusBarFrame].size.height).size;
+    
+    self.createRaceView.frame = CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height - self.navigationController.navigationBar.frame.size.height - self.tabBarController.tabBar.frame.size.height - [[UIApplication sharedApplication] statusBarFrame].size.height);
+    
+    [self.scroll addSubview:self.createRaceView];
+    self.view = self.scroll;
+    
 }
 
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
@@ -73,7 +83,7 @@
         [self.createRaceView.titleTextField.layer setBorderColor:[[UIColor redColor] CGColor] ];
         [self.createRaceView.titleTextField.layer setBorderWidth: 1];
         [self.createRaceView.titleTextField.layer setCornerRadius: 6];
-        [self triggerShakeAnimationToView: self.createRaceView.titleTextField];
+        [self.createRaceView.titleTextField triggerShakeAnimationToView];
     }
     else if ([self.createRaceView.transportTypeTableView indexPathsForSelectedRows].count == 0){
         self.createRaceView.errorLabel.text = @"Выберите транспорт для участия";
@@ -91,29 +101,6 @@
         CreateRace2StepViewController *createRaceStep2ViewController = [[CreateRace2StepViewController alloc] initWithEventTitle:self.eventTitle transportTypes:self.selectedTransportTypes andEventDate:self.eventDate];
         createRaceStep2ViewController.delegate = self.delegate;
         [self.navigationController pushViewController:createRaceStep2ViewController animated:YES];
-    }
-}
-
-- (void)triggerShakeAnimationToView: (UIView*)viewToShake {
-    const int MAX_SHAKES = 6;
-    const CGFloat SHAKE_DURATION = 0.05;
-    const CGFloat SHAKE_TRANSFORM = 4;
-    
-    CGFloat direction = 1;
-    
-    for (int i = 0; i <= MAX_SHAKES; i++) {
-        [UIView animateWithDuration:SHAKE_DURATION
-                              delay:SHAKE_DURATION * i
-                            options:UIViewAnimationOptionCurveEaseIn
-                         animations:^{
-                             if (i >= MAX_SHAKES) {
-                                 viewToShake.transform = CGAffineTransformIdentity;
-                             } else {
-                                 viewToShake.transform = CGAffineTransformMakeTranslation(SHAKE_TRANSFORM * direction, 0);
-                             }
-                         } completion:nil];
-        
-        direction *= -1;
     }
 }
 

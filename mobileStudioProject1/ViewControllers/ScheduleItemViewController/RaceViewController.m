@@ -17,6 +17,7 @@
      
     self.navigationItem.title = self.race.raceTitle;
     self.raceView.mapView.delegate = self;
+    self.raceView.mapView.showsUserLocation = YES;
     [self.raceView configureData: self.race];
     [self.raceView.membersButton addTarget:self action:@selector(membersButtonClicked:) forControlEvents:UIControlEventTouchUpInside];
     self.raceView.transportTypeTableView.delegate = self;
@@ -75,6 +76,9 @@
 
 - (MKAnnotationView *)mapView:(MKMapView *)mapView viewForAnnotation:(RacePointAnnotation<MKAnnotation>*)annotation{
     
+    if ([annotation isKindOfClass:[MKUserLocation class]]) {
+        return nil;
+    }
     static NSString *startAnnotationIdentifier = @"Start";
     static NSString *destinationAnnotationIdentifier = @"Finish";
     
@@ -87,7 +91,7 @@
         }
         return startAnnotationView;
     }
-    else if([annotation.title isEqualToString:@"Finish"]){
+    else if(annotation.annotationType == RaceAnnotationTypeFinish){
         MKAnnotationView* destinationAnnotationView = [self.raceView.mapView dequeueReusableAnnotationViewWithIdentifier:destinationAnnotationIdentifier];
         if(!destinationAnnotationView){
             destinationAnnotationView = [[MKAnnotationView alloc] initWithAnnotation:annotation reuseIdentifier:destinationAnnotationIdentifier];

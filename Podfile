@@ -8,6 +8,8 @@ target 'mobileStudioProject1' do
 pod ‘Facade’
 pod 'DateTools'
 pod 'IQKeyboardManager'
+pod 'ActionSheetPicker'
+pod 'ChameleonFramework'
 
 end
 

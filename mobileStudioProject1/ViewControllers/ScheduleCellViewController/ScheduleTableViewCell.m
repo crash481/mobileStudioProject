@@ -32,6 +32,11 @@
         [self.destinationLabel setFont: [UIFont systemFontOfSize:14] ];
         [self.destinationLabel setTextAlignment:NSTextAlignmentRight];
         
+//        self.titleLabel.textColor = [UIColor whiteColor];
+//        self.startDateLabel.textColor = [UIColor whiteColor];
+//        self.startLocationLabel.textColor = [UIColor whiteColor];
+//        self.destinationLabel.textColor = [UIColor whiteColor];
+        
         [self.contentView addSubview:self.titleLabel];
         [self.contentView addSubview:self.startDateLabel];
         [self.contentView addSubview:self.startLocationLabel];

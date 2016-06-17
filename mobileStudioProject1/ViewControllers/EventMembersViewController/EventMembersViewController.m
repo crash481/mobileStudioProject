@@ -1,11 +1,13 @@
 #import "EventMembersViewController.h"
 #import "EventMembersView.h"
-#import "Member.h"
+#import "AccountViewController.h"
+#import "User.h"
+#import "Race.h"
 
 @interface EventMembersViewController ()
 
 @property EventMembersView *eventMembersView;
-@property NSMutableArray<Member*> *members;
+@property NSMutableArray<User*> *members;
 
 @end
 
@@ -17,13 +19,12 @@
     self.navigationItem.title = @"Участники";
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Done" style:UIBarButtonItemStyleDone target:self action:@selector(backButtonPressed:)];
     
-
- 
+    User *hardcodeUser = [[User alloc] initWithNickname:@"garik1992@yayandex.ru" realName:@"Игорь" andSkillsDictionaty:@{[NSNumber numberWithInteger:TransportTypeSkateboard] : [NSNumber numberWithInteger:SkillLevelNewbie], [NSNumber numberWithInteger:TransportTypeBike] : [NSNumber numberWithInteger:SkillLevelMaster]}];
     
-    [self.members addObject: [[Member alloc] initWithNickname:@"Игорь" andAge:21]  ];
-    [self.members addObject: [[Member alloc] initWithNickname:@"Игорь" andAge:17]  ];
-    [self.members addObject: [[Member alloc] initWithNickname:@"Игорь" andAge:23]  ];
-    [self.members addObject: [[Member alloc] initWithNickname:@"Игорь" andAge:19]  ];
+    [self.members addObject: hardcodeUser  ];
+    [self.members addObject: hardcodeUser  ];
+    [self.members addObject: hardcodeUser  ];
+    [self.members addObject: hardcodeUser  ];
     [self.eventMembersView.tableView reloadData];
     
 }
@@ -41,9 +42,6 @@
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 
--(void) detailsButtonPressed: ( UITableViewRowAction * _Nonnull ) action indexPath: (NSIndexPath * __nonnull) indexPath {
-        // handle
-};
 
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     
@@ -55,7 +53,7 @@
     }
     
     cell.textLabel.text = self.members[indexPath.row].nickname;
-    cell.detailTextLabel.text = [NSString stringWithFormat:@"Возраст: %lu", (unsigned long)self.members[indexPath.row].age];
+    cell.detailTextLabel.text = [NSString stringWithFormat:@"Имя: %@", self.members[indexPath.row].realName];
     
     
     return cell;
@@ -74,7 +72,11 @@
     }];
     
     UITableViewRowAction *more = [UITableViewRowAction rowActionWithStyle:UITableViewRowActionStyleNormal title:@"Подробнее" handler:^(UITableViewRowAction * __nonnull action, NSIndexPath * __nonnull indexPath) {
-        NSLog(@"hello");
+        AccountViewController *accountViewController = [[AccountViewController alloc] initAsMemberAccount:self.members[indexPath.row]];
+        UINavigationController *accountNavController = [[UINavigationController alloc] initWithRootViewController:accountViewController];
+        accountViewController.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Done" style:UIBarButtonItemStyleDone target:accountViewController action:@selector(backButtonPressed:)];
+        [accountNavController.navigationBar setTranslucent:NO];
+        [self presentViewController:accountNavController animated:YES completion:nil];
     }];
     
     return @[delete, more];

@@ -4,6 +4,16 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
+		<key>ActionSheetPicker.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>ChameleonFramework.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>DateTools.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -37,7 +47,17 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>79E2D86B0354A18AB6962D96C88FBC52</key>
+		<key>37D10FEB77956121A0CC7A913B3BB74B</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>66E90A2CC364C2CB713301EBCEE0642D</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>935A7E52B6D8B7E37EAEA138EDC52155</key>
 		<dict>
 			<key>primary</key>
 			<true/>

@@ -76,18 +76,4 @@
     return  YES;
 }
 
-- (BOOL)textFieldShouldBeginEditing:(UITextField *)textField
-{
-    [textField.layer setBorderColor: [[UIColor blueColor] CGColor] ];
-    [textField.layer setBorderWidth:1.5];
-    [textField.layer setCornerRadius:6];
-    return YES;
-}
-
-- (BOOL)textFieldShouldEndEditing:(UITextField *)textField
-{
-    [textField.layer setBorderWidth:0];
-    return YES;
-}
-
 @end
