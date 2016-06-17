@@ -61,6 +61,7 @@
     
     cell.textLabel.text = self.transportTypesName[ [[self.race.transportTypes allObjects][indexPath.row] integerValue]];
     cell.textLabel.font = [UIFont systemFontOfSize:13];
+    cell.backgroundColor = [UIColor clearColor];
     [cell setSelectionStyle:UITableViewCellSelectionStyleNone];
     return cell;
 }

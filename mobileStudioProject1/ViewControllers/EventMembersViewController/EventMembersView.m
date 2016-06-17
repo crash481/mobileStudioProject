@@ -15,6 +15,8 @@
     if(self = [super initWithFrame:frame]){
         
         self.tableView = [[UITableView alloc] init];
+        self.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"Background"]];
+        self.tableView.backgroundColor = [UIColor lightGrayColor];
         [self addSubview:self.tableView];
     }
     return self;

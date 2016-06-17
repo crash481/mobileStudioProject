@@ -13,8 +13,10 @@
     
     if(self = [super initWithFrame:frame]){
         
-        [self setBackgroundColor: [UIColor whiteColor]];
+        [self setBackgroundColor: [UIColor redColor]];
+        [self setBackgroundColor:[UIColor colorWithPatternImage:[UIImage imageNamed:@"Background"]]];
         self.tableView = [[UITableView alloc] init];
+        self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
         [self addSubview:self.tableView];
     }
     
@@ -24,7 +26,7 @@
 
 - (void)layoutSubviews{
     [super layoutSubviews];
-    [self.tableView  fillSuperview];
+    [self.tableView  anchorInCenterFillingWidthAndHeightWithLeftAndRightPadding:8 topAndBottomPadding:0];
 }
 
 @end

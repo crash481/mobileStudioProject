@@ -54,6 +54,7 @@
     }
     cell.textLabel.text = self.transportTypes[indexPath.row];
     cell.textLabel.font = [UIFont systemFontOfSize:14];
+    cell.backgroundColor = [UIColor clearColor];
     [cell setSelectionStyle:UITableViewCellSelectionStyleNone];
     return cell;
 }

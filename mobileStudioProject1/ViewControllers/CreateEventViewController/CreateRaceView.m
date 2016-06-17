@@ -22,7 +22,7 @@
     
     if(self = [super initWithFrame:frame]){
         
-        self.backgroundColor = [UIColor whiteColor];
+        self.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"Background"]];
         
         self.titleTextField = [[UITextField alloc] init];
         self.dateLabel = [[UILabel alloc] init];
@@ -36,17 +36,21 @@
         [self.titleTextField setPlaceholder:@"Название заезда"];
         [self.titleTextField setDelegate:self];
         [self.dateLabel setText:@"Дата и время начала заезда:"];
-        [self.dateLabel setFont:[UIFont systemFontOfSize:16]];
+        [self.dateLabel setFont:[UIFont systemFontOfSize:17 weight:UIFontWeightBold]];
+        self.dateLabel.textColor = [UIColor whiteColor];
         [self.transportTypeLabel setText:@"Транспорт для участия:"];
-        [self.transportTypeLabel setFont:[UIFont systemFontOfSize:15]];
+        [self.transportTypeLabel setFont:[UIFont systemFontOfSize:16 weight:UIFontWeightBold]];
+        self.transportTypeLabel.textColor = [UIColor whiteColor];
         [self.datePicker setDatePickerMode:UIDatePickerModeDateAndTime ];
         [self.datePicker setMinimumDate:[NSDate dateWithTimeIntervalSinceNow:0]];
+        self.datePicker.backgroundColor = [UIColor colorWithWhite:1 alpha:0.8];
+        self.transportTypeTableView.backgroundColor = [UIColor colorWithWhite:1 alpha:0.8];
         [self.nextButton setTitle:@"Далее" forState:UIControlStateNormal];
         [self.nextButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
         [self.nextButton setBackgroundImage:[UIImage imageNamed:@"Button"] forState:UIControlStateNormal];
         [self.errorLabel setText:@"Введите название заезда"];
         [self.errorLabel setTextColor:[UIColor redColor]];
-        [self.errorLabel setFont:[UIFont systemFontOfSize:12]];
+        [self.errorLabel setFont:[UIFont systemFontOfSize:13]];
         [self.errorLabel setHidden:YES];
         
         [self addSubview:self.titleTextField];
@@ -63,11 +67,11 @@
 -(void)layoutSubviews{
         [self.titleTextField anchorTopCenterWithTopPadding:10 width:self.frame.size.width*0.8 height:35];
         [self.errorLabel alignUnder:self.titleTextField matchingLeftWithTopPadding:2 width:300 height:12];
-        [self.transportTypeLabel alignUnder:self.titleTextField matchingCenterWithTopPadding:25 width:self.width*0.8 height:15];
+        [self.transportTypeLabel alignUnder:self.titleTextField matchingCenterWithTopPadding:28 width:self.width*0.8 height:15];
         [self.transportTypeTableView alignUnder:self.transportTypeLabel matchingCenterWithTopPadding:8 width:self.width*0.8 height:self.height*0.23];
         [self.dateLabel alignUnder:self.transportTypeTableView withLeftPadding:12 topPadding:10 width:340 height:13];
-        [self.datePicker alignBetweenTop:self.dateLabel andBottom:self.nextButton centeredWithLeftAndRightPadding:0 topAndBottomPadding:0];
-        [self.nextButton anchorBottomCenterWithBottomPadding:10 width:230 height:38];
+        [self.datePicker alignBetweenTop:self.dateLabel andBottom:self.nextButton centeredWithLeftAndRightPadding:0 topAndBottomPadding:6];
+        [self.nextButton anchorBottomCenterWithBottomPadding:6 width:230 height:38];
 }
 
 - (BOOL)textFieldShouldReturn:(UITextField *)textField{

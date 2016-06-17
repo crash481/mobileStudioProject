@@ -19,6 +19,7 @@
     [IQKeyboard setEnable:YES];
     [IQKeyboard setShouldResignOnTouchOutside:YES];
     [self.window makeKeyAndVisible];
+    
    
     return YES;
 }

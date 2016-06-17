@@ -16,8 +16,7 @@
 - (instancetype)initWithFrame:(CGRect)frame{
     if(self = [super initWithFrame:frame ]){
         
-        self.backgroundColor = [UIColor whiteColor];
-        
+        self.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"Background"]];
         
         self.loginTextField = [[UITextField alloc] init];
         self.loginTextField.backgroundColor = [UIColor lightGrayColor];
@@ -52,6 +51,7 @@
         
         self.enterButton = [UIButton buttonWithType:UIButtonTypeSystem];
         [self.enterButton setTitle:@"Войти без регистрации" forState:UIControlStateNormal];
+        [self.enterButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
         
         [self addSubview:self.loginButton];
         [self addSubview:self.registrationButton];
@@ -66,12 +66,12 @@
 - (void)layoutSubviews{
     [super layoutSubviews];
     
-    [self.loginTextField anchorBottomCenterWithBottomPadding:self.frame.size.height/2+80 width:290 height:32];
-    [self.passwordTextField anchorBottomCenterWithBottomPadding:self.frame.size.height/2+40 width:290 height:32];
+    [self.loginTextField anchorBottomCenterWithBottomPadding:self.frame.size.height/2+80 width:290 height:38];
+    [self.passwordTextField alignUnder:self.loginTextField matchingLeftAndRightWithTopPadding:10 height:38];
     
-    [self.loginButton anchorBottomLeftWithLeftPadding:self.frame.size.width/2-145 bottomPadding:self.frame.size.height/2-5 width:120 height:28];
-    [self.registrationButton anchorBottomLeftWithLeftPadding:self.frame.size.width/2-5 bottomPadding:self.frame.size.height/2-5 width:150 height:28];
-
+    [self.loginButton alignUnder:self.passwordTextField matchingLeftWithTopPadding:8 width:120 height:32];
+    [self.registrationButton alignUnder:self.passwordTextField matchingRightWithTopPadding:8 width:150 height:32];
+    
     [self.enterButton anchorBottomCenterWithBottomPadding:20 width:200 height:25];
 }
 

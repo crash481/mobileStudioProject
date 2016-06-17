@@ -19,7 +19,7 @@
     
     if(self = [super initWithFrame:frame]){
         
-        self.backgroundColor = [UIColor whiteColor];
+        self.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"Background"]];
         
         self.realNameTextBox = [[UITextField alloc] init];
         self.skillsTableView = [[UITableView alloc] init];
@@ -35,6 +35,8 @@
         [self.realNameTextBox setLeftView:self.realNameLeftLabel];
         [self.realNameTextBox setLeftViewMode:UITextFieldViewModeAlways];
         
+        self.skillsTableView.backgroundColor = [UIColor clearColor];
+        self.skillsTableView.separatorStyle = UITableViewCellSeparatorStyleNone;
         [self.addSkillButton setTitle:@"Новое умение" forState:UIControlStateNormal];
         self.addSkillButton.titleLabel.font = [UIFont fontWithName:@"AmericanTypewriter" size:16];
         [self.addSkillButton setBackgroundImage:[UIImage imageNamed:@"AddButton"] forState:UIControlStateNormal];
@@ -61,10 +63,9 @@
     [super layoutSubviews];
  
     [self.realNameTextBox anchorTopCenterWithTopPadding:20 width:self.width*0.85 height:40];
-    
     [self.logoutButton anchorBottomRightWithRightPadding:6 bottomPadding:8 width:self.width*0.475 height:37];
     [self.addSkillButton anchorBottomLeftWithLeftPadding:6 bottomPadding:8 width:self.width*0.475 height:37 ];
-    [self.skillsTableView alignBetweenTop:self.realNameTextBox andBottom:self.addSkillButton centeredWithLeftAndRightPadding:0 topAndBottomPadding:10];
+    [self.skillsTableView alignBetweenTop:self.realNameTextBox andBottom:self.addSkillButton centeredWithLeftAndRightPadding:10 topAndBottomPadding:10];
 }
 
 @end
