@@ -5,6 +5,7 @@
 #import "CreateRaceViewController.h"
 #import "RaceStorage.h"
 #import "ArrayDataSource.h"
+#import "Chameleon.h"
 
 @interface ScheduleViewController()
 
@@ -44,8 +45,21 @@
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
-    
+    return 1;
+}
+
+-(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
     return self.schedules.count;
+}
+
+-(CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section{
+    return 14;
+}
+
+-(UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section{
+    UIView *header = [[UIView alloc] init];
+    header.backgroundColor = [UIColor clearColor];
+    return header;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
@@ -55,8 +69,7 @@
     if( cell == nil ){
         cell = [[ScheduleTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:reuseIndentifier];
     }
-    [cell configureData: self.schedules[indexPath.row] ];
-    cell.backgroundColor = [UIColor clearColor];
+    [cell configureData: self.schedules[indexPath.section] ];
     return cell;
 }
 
@@ -66,7 +79,7 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     
-    Race *race = self.schedules[indexPath.row];
+    Race *race = self.schedules[indexPath.section];
     RaceViewController *raceViewController = [[RaceViewController alloc] initWithRace:race];
     [self.navigationController pushViewController:raceViewController animated:YES];
 }
@@ -75,10 +88,11 @@
     
     UITableViewRowAction *delete = [UITableViewRowAction rowActionWithStyle:UITableViewRowActionStyleDestructive title:@"Удалить" handler:^(UITableViewRowAction * __nonnull action, NSIndexPath * __nonnull indexPath) {
         
-        [RaceStorage removeRace: [self.schedules objectAtIndex:indexPath.row]];
+        [RaceStorage removeRace: [self.schedules objectAtIndex:indexPath.section]];
         [RaceStorage saveRaces];
         [self.scheduleView.tableView reloadData];
     }];
+    delete.backgroundColor = [UIColor colorWithRed:1 green:0 blue:0 alpha:0.6];
     return @[delete];
 }
 

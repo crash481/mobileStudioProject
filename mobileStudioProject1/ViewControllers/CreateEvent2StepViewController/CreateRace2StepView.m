@@ -16,7 +16,7 @@
     
     if(self = [super initWithFrame:frame]){
         
-        [self setBackgroundColor:[UIColor whiteColor]];
+        self.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"Background"]];
         
         self.mapView = [[MKMapView alloc] init];
         self.startPlaceTextField = [[UITextField alloc] init];
@@ -41,7 +41,8 @@
         [self.confirmMapSelection setTitle:@"Подтвердить" forState:UIControlStateNormal];
         [self.confirmMapSelection setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
         [self.confirmMapSelection setHidden:YES];
-        self.mapView.alpha = 0.5;
+        self.mapView.backgroundColor = [UIColor whiteColor];
+        self.mapView.alpha = 0.9;
         
         
         [self.startOnMapButton setBackgroundImage:[UIImage imageNamed:@"DeleteButton"] forState:UIControlStateNormal];

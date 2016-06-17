@@ -152,7 +152,7 @@
     [self.createRace2StepView.confirmMapSelection setHidden:YES];
     self.createRace2StepView.startOnMapButton.enabled = YES;
     self.createRace2StepView.destinationOnMapButton.enabled = YES;
-    self.createRace2StepView.mapView.alpha = 0.5;
+    self.createRace2StepView.mapView.alpha = 0.9;
     
     if(self.startOrDestinationChoosing){
         for (RacePointAnnotation *annotation in [self.createRace2StepView.mapView annotations]) {

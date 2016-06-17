@@ -26,7 +26,7 @@
 - (instancetype) initWithFrame:(CGRect)frame{
     
     if(self = [super initWithFrame:frame]){
-        [self setBackgroundColor:[UIColor whiteColor]];
+        self.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"Background"]];
         
         self.mapView = [[MKMapView alloc] init];
         self.startDateLabel = [[UILabel alloc] init];
@@ -45,6 +45,21 @@
         [self.startLocationText setText:@"Выезд из: "];
         [self.destinationText setText:@"Едем в: "];
         [self.startDateText setText:@"Начало заезда: "];
+        
+        self.startLocationText.textColor = [UIColor whiteColor];
+        self.startLocationLabel.textColor = [UIColor whiteColor];
+        self.destinationText.textColor = [UIColor whiteColor];
+        self.destinationLabel.textColor = [UIColor whiteColor];
+        self.startDateText.textColor = [UIColor whiteColor];
+        self.startDateLabel.textColor = [UIColor whiteColor];
+        self.transportTypeLabel.textColor = [UIColor whiteColor];
+        self.startLocationText.font = [UIFont boldSystemFontOfSize:17];
+        self.startLocationLabel.font = [UIFont boldSystemFontOfSize:17];
+        self.destinationText.font = [UIFont boldSystemFontOfSize:17];
+        self.destinationLabel.font = [UIFont boldSystemFontOfSize:17];
+        self.startDateText.font = [UIFont boldSystemFontOfSize:17];
+        self.startDateLabel.font = [UIFont boldSystemFontOfSize:17];
+        self.transportTypeLabel.font = [UIFont boldSystemFontOfSize:17];
        
         [self.joinButton setTitle:@"Присоедениться" forState: UIControlStateNormal ];
         [self.joinButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
@@ -52,6 +67,9 @@
         [self.membersButton setTitle:@"Участники" forState: UIControlStateNormal ];
         [self.membersButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
         [self.membersButton setBackgroundImage:[UIImage imageNamed:@"Button"] forState:UIControlStateNormal];
+        
+        self.transportTypeTableView.backgroundColor = [UIColor colorWithWhite:1 alpha:0.85];
+
         
         [self addSubview: self.mapView];
         [self addSubview: self.startDateText];
@@ -74,21 +92,21 @@
     [super layoutSubviews];
     
     [self.startLocationText anchorTopLeftWithLeftPadding:10 topPadding:8 width:130 height:20];
-    [self.destinationText alignUnder:self.startLocationText withLeftPadding:10 topPadding:3 width:130 height:20];
-    [self.startDateText alignUnder:self.destinationText withLeftPadding:10 topPadding:3 width:130 height:20];
+    [self.destinationText alignUnder:self.startLocationText withLeftPadding:10 topPadding:4 width:130 height:20];
+    [self.startDateText alignUnder:self.destinationText withLeftPadding:10 topPadding:4 width:130 height:20];
     
     [self.startLocationLabel anchorTopLeftWithLeftPadding:145 topPadding:8 width:200 height:20];
-    [self.destinationLabel alignUnder:self.startLocationLabel withLeftPadding:145 topPadding:3 width:200 height:20];
-    [self.startDateLabel alignUnder:self.destinationLabel withLeftPadding:145 topPadding:3 width:200 height:20];
+    [self.destinationLabel alignUnder:self.startLocationLabel withLeftPadding:145 topPadding:4 width:200 height:20];
+    [self.startDateLabel alignUnder:self.destinationLabel withLeftPadding:145 topPadding:4 width:200 height:20];
     
-    [self.transportTypeLabel anchorTopCenterWithTopPadding:80 width:self.width*0.6 height:16];
-    [self.transportTypeTableView alignUnder:self.transportTypeLabel matchingCenterWithTopPadding:3 width:self.width*0.6 height:self.height*0.2];
+    [self.transportTypeLabel anchorTopCenterWithTopPadding:85 width:self.width*0.6 height:16];
+    [self.transportTypeTableView alignUnder:self.transportTypeLabel matchingCenterWithTopPadding:4 width:self.width*0.6 height:self.height*0.15];
     
-    [self.joinButton alignUnder:self.transportTypeTableView withLeftPadding:10 topPadding:3 width:self.frame.size.width*0.45 height:35];
-    [self.membersButton alignUnder:self.transportTypeTableView withRightPadding:10 topPadding:3 width:self.frame.size.width*0.45 height:35];
+    [self.joinButton alignUnder:self.transportTypeTableView withLeftPadding:10 topPadding:4 width:self.frame.size.width*0.45 height:35];
+    [self.membersButton alignUnder:self.transportTypeTableView withRightPadding:10 topPadding:4 width:self.frame.size.width*0.45 height:35];
     
     [self.mapView alignUnder:self.joinButton centeredFillingWidthAndHeightWithLeftAndRightPadding:0 topAndBottomPadding:0];
-    self.mapView.frame = CGRectMake(self.mapView.frame.origin.x, self.mapView.frame.origin.y+5, self.mapView.frame.size.width, self.mapView.frame.size.height);
+    self.mapView.frame = CGRectMake(self.mapView.frame.origin.x, self.mapView.frame.origin.y+4, self.mapView.frame.size.width, self.mapView.frame.size.height);
 
 }
 -(void) configureData: (Race*)race{

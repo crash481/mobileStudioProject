@@ -3,6 +3,7 @@
 #import "AccountViewController.h"
 #import "User.h"
 #import "Race.h"
+#import "Chameleon.h"
 
 @interface EventMembersViewController ()
 
@@ -18,6 +19,13 @@
     self.members = [[NSMutableArray alloc] init];
     self.navigationItem.title = @"Участники";
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Done" style:UIBarButtonItemStyleDone target:self action:@selector(backButtonPressed:)];
+<<<<<<< HEAD
+    self.navigationController.navigationBar.translucent = NO;
+=======
+>>>>>>> c6c31670ec85e787af0ce8f6e04196dc1c1e74fb
+    self.navigationController.navigationBar.barStyle = UIBarStyleBlack;
+    self.navigationController.navigationBar.barTintColor = [UIColor flatBlackColor];
+    self.navigationController.navigationBar.tintColor = [UIColor flatRedColorDark];
     
     User *hardcodeUser = [[User alloc] initWithNickname:@"garik1992@yayandex.ru" realName:@"Игорь" andSkillsDictionaty:@{[NSNumber numberWithInteger:TransportTypeSkateboard] : [NSNumber numberWithInteger:SkillLevelNewbie], [NSNumber numberWithInteger:TransportTypeBike] : [NSNumber numberWithInteger:SkillLevelMaster]}];
     
@@ -54,7 +62,7 @@
     
     cell.textLabel.text = self.members[indexPath.row].nickname;
     cell.detailTextLabel.text = [NSString stringWithFormat:@"Имя: %@", self.members[indexPath.row].realName];
-    
+    cell.backgroundColor = [UIColor clearColor];
     
     return cell;
 }

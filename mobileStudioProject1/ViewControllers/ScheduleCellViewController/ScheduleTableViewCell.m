@@ -1,6 +1,7 @@
 #import "ScheduleTableViewCell.h"
 #import "UIView+Facade.h"
 #import "NSDate+DateTools.h"
+#import "Chameleon.h"
 
 @interface ScheduleTableViewCell ()
 
@@ -24,6 +25,8 @@
         self.startLocationLabel = [[UILabel alloc] init];
         self.destinationLabel = [[UILabel alloc] init];
         
+        self.layer.cornerRadius = 6;
+        self.backgroundColor = [UIColor colorWithWhite:1 alpha:0.85];
         [self.titleLabel setFont: [UIFont systemFontOfSize:17] ];
         [self.titleLabel setTextAlignment:NSTextAlignmentCenter];
         [self.startDateLabel setFont: [UIFont systemFontOfSize:12] ];
@@ -55,7 +58,12 @@
 
 - (void)layoutSubviews{
     [super layoutSubviews];
-
+    
+//    CGRect rect = self.frame;
+//    rect.origin.x = 6;
+//    rect.size.width = [[UIScreen mainScreen] bounds].size.width -12;
+//    self.frame = rect;
+    
     [self.titleLabel sizeToFit];
     [self.titleLabel anchorTopCenterWithTopPadding:19 width:self.frame.size.width*0.9 height:self.titleLabel.height];
     

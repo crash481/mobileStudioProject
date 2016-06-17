@@ -20,6 +20,9 @@
     self.tabBar.translucent = NO;
     [RaceStorage loadRaces];
     self.boolForPresentLoginWindow = YES;
+    self.tabBar.barTintColor = [UIColor flatBlackColor];
+    self.tabBar.tintColor = [UIColor flatRedColorDark];
+    
     ScheduleViewController *skateboardsViewController = [[ScheduleViewController alloc] initWithSchedules:[RaceStorage skateboardSchedules]];
     skateboardsViewController.view.tag = 0;
     UINavigationController *skateboardsNavController = [[UINavigationController alloc] initWithRootViewController: skateboardsViewController];
@@ -29,6 +32,10 @@
     skateboardsNavController.tabBarItem.title = @"Скейт/Лонгборд";
     skateboardsNavController.tabBarItem.image = [UIImage imageNamed:@"Skateboard"];
     skateboardsNavController.navigationBar.translucent = NO;
+    skateboardsNavController.navigationBar.barStyle = UIBarStyleBlack;
+    skateboardsNavController.navigationBar.barTintColor = [UIColor flatBlackColor];
+    skateboardsNavController.navigationBar.tintColor = [UIColor flatRedColorDark];
+    
     
     ScheduleViewController *bikesViewController = [[ScheduleViewController alloc] initWithSchedules:[RaceStorage bikeSchedules]];
     bikesViewController.view.tag = 1;
@@ -38,12 +45,17 @@
     bikesNavController.tabBarItem.title = @"Велосипед";
     bikesNavController.tabBarItem.image = [UIImage imageNamed:@"Bike"];
     bikesNavController.navigationBar.translucent = NO;
+    bikesNavController.navigationBar.barStyle = UIBarStyleBlack;
+    bikesNavController.navigationBar.barTintColor = [UIColor flatBlackColor];
+    bikesNavController.navigationBar.tintColor = [UIColor flatRedColorDark];
     
     UINavigationController *accountNavController = [[UINavigationController alloc] initWithRootViewController:[[AccountViewController alloc] initAsUserAccount:[UserProfile sharedProfile].user ]];
     accountNavController.tabBarItem.image = [UIImage imageNamed:@"AccountIcon"];
     accountNavController.tabBarItem.title = @"Аккаунт";
     accountNavController.navigationBar.translucent = NO;
-    
+    accountNavController.navigationBar.barStyle = UIBarStyleBlack;
+    accountNavController.navigationBar.barTintColor = [UIColor flatBlackColor];
+    accountNavController.navigationBar.tintColor = [UIColor flatRedColorDark];
     
     [self setViewControllers:@[skateboardsNavController, bikesNavController, accountNavController]];
     

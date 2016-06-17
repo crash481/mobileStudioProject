@@ -133,20 +133,37 @@
     if( cell == nil ){
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:reuseIndentifier];
     }
-    cell.textLabel.text = self.transportStrings[self.accountUser.skillsDictionary.allKeys[indexPath.row].integerValue];
-    cell.detailTextLabel.text = self.levelStrings[ [self.accountUser.skillsDictionary objectForKey: self.accountUser.skillsDictionary.allKeys[indexPath.row]].integerValue ];
+    cell.textLabel.text = self.transportStrings[self.accountUser.skillsDictionary.allKeys[indexPath.section].integerValue];
+    cell.detailTextLabel.text = self.levelStrings[ [self.accountUser.skillsDictionary objectForKey: self.accountUser.skillsDictionary.allKeys[indexPath.section]].integerValue ];
+    cell.backgroundColor = [UIColor colorWithWhite:1 alpha:0.85];
+    cell.layer.cornerRadius = 5;
+    cell.selectionStyle = UITableViewCellSelectionStyleNone;
     return cell;
 }
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
+    return 1;
+}
+
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
     return self.accountUser.skillsDictionary.count;
+}
+
+-(UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section{
+    UIView *header = [[UIView alloc] init];
+    header.backgroundColor = [UIColor clearColor];
+    return header;
+}
+
+-(CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section{
+    return 12;
 }
 
 - (NSArray<UITableViewRowAction *> *)tableView:(UITableView *)tableView editActionsForRowAtIndexPath:(NSIndexPath *)indexPath{
     
     UITableViewRowAction *delete = [UITableViewRowAction rowActionWithStyle:UITableViewRowActionStyleDestructive title:@"Удалить" handler:^(UITableViewRowAction * __nonnull action, NSIndexPath * __nonnull indexPath) {
         
-        [self.accountUser.skillsDictionary removeObjectForKey: self.accountUser.skillsDictionary.allKeys[indexPath.row]];
+        [self.accountUser.skillsDictionary removeObjectForKey: self.accountUser.skillsDictionary.allKeys[indexPath.section]];
         [self.accountView.skillsTableView reloadData];
         [[UserProfile sharedProfile] saveUserProfile];
     }];
