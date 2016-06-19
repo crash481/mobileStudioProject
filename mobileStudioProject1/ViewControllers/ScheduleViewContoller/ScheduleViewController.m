@@ -28,12 +28,6 @@
 
 -(void)viewWillAppear:(BOOL)animated{
     [self.scheduleView.tableView reloadData];
-
-//    self.navigationController.navigationBar.barStyle = UIBarStyleBlack;
-//    self.tabBarController.tabBar.barStyle = UIBarStyleBlack;
-//    self.tabBarController.tabBar.tintColor = [UIColor whiteColor];
-//    self.navigationController.navigationBar.barTintColor = [UIColor colorWithRed:101.0/255 green:184.0/255 blue:178.0/255 alpha:0.9];
-//    self.tabBarController.tabBar.barTintColor = [UIColor colorWithRed:101.0/255 green:184.0/255 blue:178.0/255 alpha:0.6];
 }
 
 -(instancetype)initWithSchedules: (NSMutableArray<Race*>*)schedules{
