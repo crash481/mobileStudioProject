@@ -24,7 +24,7 @@
     self.navigationController.navigationBar.barTintColor = [UIColor flatBlackColor];
     self.navigationController.navigationBar.tintColor = [UIColor flatRedColorDark];
     
-    User *hardcodeUser = [[User alloc] initWithNickname:@"garik1992@yayandex.ru" realName:@"Игорь" andSkillsDictionaty:@{[NSNumber numberWithInteger:TransportTypeSkateboard] : [NSNumber numberWithInteger:SkillLevelNewbie], [NSNumber numberWithInteger:TransportTypeBike] : [NSNumber numberWithInteger:SkillLevelMaster]}];
+    User *hardcodeUser = [[User alloc] initWithNickname:@"garik1992@yayandex.ru" realName:@"Игорь" andSkillsDictionaty:[@{[NSNumber numberWithInteger:TransportTypeSkateboard] : [NSNumber numberWithInteger:SkillLevelNewbie], [NSNumber numberWithInteger:TransportTypeBike] : [NSNumber numberWithInteger:SkillLevelMaster]} mutableCopy]];
     
     [self.members addObject: hardcodeUser  ];
     [self.members addObject: hardcodeUser  ];
