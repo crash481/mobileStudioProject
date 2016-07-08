@@ -94,6 +94,7 @@
     else{
         self.eventTitle = self.createRaceView.titleTextField.text;
         self.eventDate = self.createRaceView.datePicker.date;
+        [self.selectedTransportTypes removeAllObjects];
         for (NSIndexPath *indexPath in [self.createRaceView.transportTypeTableView indexPathsForSelectedRows]) {
             [self.selectedTransportTypes addObject: [NSNumber numberWithInteger:indexPath.row]];
         }

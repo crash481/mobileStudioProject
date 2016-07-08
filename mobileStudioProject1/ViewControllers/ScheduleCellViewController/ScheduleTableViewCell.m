@@ -25,6 +25,7 @@
         self.startLocationLabel = [[UILabel alloc] init];
         self.destinationLabel = [[UILabel alloc] init];
         
+        self.selectionStyle = UITableViewCellSelectionStyleNone;
         self.layer.cornerRadius = 6;
         self.backgroundColor = [UIColor colorWithWhite:1 alpha:0.85];
         [self.titleLabel setFont: [UIFont systemFontOfSize:17] ];

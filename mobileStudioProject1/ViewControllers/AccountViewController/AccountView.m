@@ -10,6 +10,7 @@
 @property UIButton *addSkillButton;
 @property UIButton *logoutButton;
 @property UILabel *realNameLeftLabel;
+@property (readwrite) UILabel *noSkillsLabel;
 
 @end
 
@@ -26,7 +27,15 @@
         self.addSkillButton = [UIButton buttonWithType:UIButtonTypeSystem];
         self.logoutButton = [UIButton buttonWithType:UIButtonTypeSystem];
         self.realNameLeftLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 90, 30)];
+        self.noSkillsLabel = [[UILabel alloc] init];
         
+        [self.noSkillsLabel setText:@"Способностей нет"];
+        [self.noSkillsLabel setFont:[UIFont systemFontOfSize:20]];
+        [self.noSkillsLabel setTextAlignment:NSTextAlignmentCenter];
+        self.noSkillsLabel.backgroundColor = [UIColor colorWithWhite:1 alpha:0.85];
+        self.noSkillsLabel.layer.cornerRadius = 6;
+        self.noSkillsLabel.clipsToBounds = YES;
+        [self.noSkillsLabel setHidden:YES];
         [self.realNameLeftLabel setText:@"Ваше имя:"];
         [self.realNameLeftLabel setTextColor:[UIColor blackColor]];
         [self.realNameLeftLabel setTextAlignment:NSTextAlignmentRight];
@@ -53,6 +62,7 @@
         [self addSubview:self.addSkillButton];
         [self addSubview:self.logoutButton];
         [self addSubview:self.realNameLeftLabel];
+        [self addSubview:self.noSkillsLabel];
         
     }
     return self;
@@ -66,6 +76,7 @@
     [self.logoutButton anchorBottomRightWithRightPadding:6 bottomPadding:8 width:self.width*0.475 height:37];
     [self.addSkillButton anchorBottomLeftWithLeftPadding:6 bottomPadding:8 width:self.width*0.475 height:37 ];
     [self.skillsTableView alignBetweenTop:self.realNameTextBox andBottom:self.addSkillButton centeredWithLeftAndRightPadding:10 topAndBottomPadding:10];
+    [self.noSkillsLabel anchorInCenterWithWidth:self.width-16  height:60];
 }
 
 @end

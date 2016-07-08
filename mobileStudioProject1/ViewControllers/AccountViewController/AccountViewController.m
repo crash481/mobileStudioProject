@@ -74,6 +74,13 @@
         self.accountView.addSkillButton.hidden = YES;
         self.accountView.realNameTextBox.userInteractionEnabled = NO;
     }
+    
+    if(self.accountUser.skillsDictionary.count==0){
+        [self.accountView.noSkillsLabel setHidden:NO];
+    }
+    else{
+        [self.accountView.noSkillsLabel setHidden:YES];
+    }
 }
 
 -(void)addSkillButtonTapped:(id)sender{
@@ -125,6 +132,12 @@
     [self.accountUser.skillsDictionary setObject:selectedSkill forKey:selectedTransport];
     [self.accountView.skillsTableView reloadData];
     [[UserProfile sharedProfile] saveUserProfile];
+    if(self.accountUser.skillsDictionary.count==0){
+        [self.accountView.noSkillsLabel setHidden:NO];
+    }
+    else{
+        [self.accountView.noSkillsLabel setHidden:YES];
+    }
 }
 
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
@@ -166,6 +179,12 @@
         [self.accountUser.skillsDictionary removeObjectForKey: self.accountUser.skillsDictionary.allKeys[indexPath.section]];
         [self.accountView.skillsTableView reloadData];
         [[UserProfile sharedProfile] saveUserProfile];
+        if(self.accountUser.skillsDictionary.count==0){
+            [self.accountView.noSkillsLabel setHidden:NO];
+        }
+        else{
+            [self.accountView.noSkillsLabel setHidden:YES];
+        }
     }];
     return @[delete];
 }

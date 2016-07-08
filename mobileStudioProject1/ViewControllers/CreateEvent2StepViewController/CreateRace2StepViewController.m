@@ -25,6 +25,7 @@
     [super viewDidLoad];
     self.locationManager =  [[CLLocationManager alloc] init];
     [self.locationManager requestWhenInUseAuthorization];
+    self.navigationItem.title = @"Создание мероприятия";
     self.startOrDestinationChoosing = YES;
     self.createRace2StepView.mapView.userInteractionEnabled = NO;
     

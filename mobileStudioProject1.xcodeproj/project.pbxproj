@@ -254,7 +254,6 @@
 		7C9FC3091CCFDA9900498273 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
-				7C514B7E1CFB1B9E00A23923 /* AccountViewController */,
 				7C040B171CECB2FE000FC5C1 /* CreateEvent2StepViewController */,
 				7C040B101CEB736C000FC5C1 /* CreateEventViewController */,
 				7C040B091CEA7964000FC5C1 /* LoginViewController */,
@@ -262,6 +261,7 @@
 				7CA64F951CD8E60700FB55B3 /* EventMembersViewController */,
 				7CAC73EB1CD26170007140C5 /* ScheduleCellViewController */,
 				7C9FC30A1CCFDA9900498273 /* RaceViewController */,
+				7C514B7E1CFB1B9E00A23923 /* AccountViewController */,
 				7C9FC30F1CCFDA9900498273 /* ScheduleViewContoller */,
 			);
 			path = ViewControllers;
