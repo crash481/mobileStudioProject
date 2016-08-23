@@ -9,9 +9,10 @@
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    self.window.backgroundColor = [UIColor whiteColor];
     
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
+    self.window.backgroundColor = [UIColor whiteColor];
+    
     SchedulesTabBarViewController *schedulesTabBarViewController = [[SchedulesTabBarViewController alloc] init];
     self.window.rootViewController = schedulesTabBarViewController;
     
